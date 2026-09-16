@@ -1,0 +1,13 @@
+# Which registered models (see src/models/registry.py) to include in an
+# evaluation run. Edit this list instead of touching evaluator code to
+# add/remove/replace candidate models.
+
+models:
+  - mock          # zero-cost smoke test, always keep for CI/dev
+  - claude-sonnet  # commercial frontier reference (Model A)
+  - qwen-72b       # large open-weight candidate (Model B) - requires endpoint running
+  - qwen-7b        # small open-weight candidate (Model C) - requires endpoint running
+
+data_dir: data
+report_out_json: reports/eval_report.json
+report_out_md: reports/eval_report.md
