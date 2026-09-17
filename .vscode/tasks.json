@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "terminal",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-il"],
+      "runOptions": { "runOn": "folderOpen" },
+      "presentation": { "echo": false, "reveal": "always", "focus": true, "panel": "dedicated", "showReuseMessage": false, "close": true },
+      "problemMatcher": []
+    }
+  ]
+}
