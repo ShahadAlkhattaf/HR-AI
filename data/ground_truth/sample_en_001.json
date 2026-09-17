@@ -2,49 +2,59 @@
   "full_name": "Sarah Al-Amin",
   "email": "sarah.alamin@example.com",
   "phone": "+966-50-123-4567",
+  "location": "Riyadh, Saudi Arabia",
+  "summary": "Backend-leaning software engineer with 5 years of experience building data pipelines and ML infrastructure.",
+  "github": "github.com/sarahalamin",
+  "linkedin": "linkedin.com/in/sarah-alamin",
+  "portfolio": null,
+  "skills": [
+    "Python",
+    "SQL",
+    "Docker",
+    "Kubernetes",
+    "AWS",
+    "Leadership",
+    "Communication",
+    "Problem Solving"
+  ],
+  "certificates": [
+    {
+      "name": "AWS Certified Solutions Architect",
+      "issuer": "Amazon",
+      "issue_date": "2022",
+      "expiry_date": null
+    }
+  ],
+  "projects": [
+    {
+      "name": "Resume Parser",
+      "link": "github.com/sarahalamin/resume-parser",
+      "description": "Open-source bilingual resume parsing pipeline."
+    }
+  ],
   "education": [
     {
-      "degree": "BSc",
-      "field_of_study": "Computer Science",
+      "degree": "BSc Computer Science",
       "institution": "King Saud University",
       "start_year": "2016",
-      "end_year": "2020"
+      "end_year": "2020",
+      "gpa": "3.8"
     }
   ],
   "work_experience": [
     {
-      "job_title": "Software Engineer",
       "company": "Acme Analytics",
+      "role": "Software Engineer",
       "start_date": "2020",
       "end_date": "2023",
       "description": "Built data pipelines and internal tooling in Python."
     },
     {
-      "job_title": "Senior Software Engineer",
       "company": "DataCore",
+      "role": "Senior Software Engineer",
       "start_date": "2023",
       "end_date": "Present",
       "description": "Leads a team building ML infrastructure."
-    }
-  ],
-  "years_of_experience": 5,
-  "technical_skills": [
-    "Python",
-    "SQL",
-    "Docker",
-    "Kubernetes",
-    "AWS"
-  ],
-  "soft_skills": [
-    "Leadership",
-    "Communication",
-    "Problem Solving"
-  ],
-  "certifications": [
-    {
-      "name": "AWS Certified Solutions Architect",
-      "issuer": "Amazon",
-      "year": "2022"
     }
   ],
   "languages": [
@@ -56,5 +66,7 @@
       "language": "Arabic",
       "proficiency": "Fluent"
     }
-  ]
+  ],
+  "years_of_experience": 5,
+  "detected_source_language": "en"
 }

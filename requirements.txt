@@ -13,5 +13,12 @@ openai>=1.40.0          # OpenAI-compatible client, used for vLLM/TGI/HF/AI-Hub-
 # --- Evaluation ---
 pyyaml>=6.0
 
+# --- API layer ---
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9   # required by FastAPI/Starlette for multipart/form-data uploads
+
 # --- Dev / tests ---
 pytest>=8.0.0
+httpx>=0.27.0             # used by FastAPI's TestClient
+

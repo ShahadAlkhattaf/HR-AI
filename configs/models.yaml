@@ -3,10 +3,7 @@
 # add/remove/replace candidate models.
 
 models:
-  - mock          # zero-cost smoke test, always keep for CI/dev
-  - claude-sonnet  # commercial frontier reference (Model A)
-  - qwen-72b       # large open-weight candidate (Model B) - requires endpoint running
-  - qwen-7b        # small open-weight candidate (Model C) - requires endpoint running
+  - served-model
 
 data_dir: data
 report_out_json: reports/eval_report.json

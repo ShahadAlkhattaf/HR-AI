@@ -27,10 +27,12 @@ Extract the candidate's information into ONLY a single JSON object matching this
 
 Rules:
 - Respond with ONLY the JSON object. No preamble, no markdown fences, no explanation.
-- If a field is not present in the resume, use null (or an empty list for list fields). Do not invent information.
+- Extract only information that is actually present in the resume text. Never invent, guess, or hallucinate information.
+- If a scalar field is not present in the resume, use null. If a list/collection field has no items, use an empty list [].
 - Preserve names and terms in their original language/script (do not translate Arabic names to English or vice versa).
-- "years_of_experience" should be your best numeric estimate based on work history dates; null if it cannot be determined.
+- Set "years_of_experience" only if it is explicitly stated in the resume; otherwise use null.
 - Set "detected_source_language" to "en", "ar", or "mixed" based on the resume content.
+- This applies equally to English resumes, Arabic resumes, and resumes that mix both languages.
 """
 
 

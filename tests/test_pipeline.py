@@ -47,14 +47,28 @@ def test_score_scalar_field_mismatch():
 
 def test_score_list_string_field_partial_overlap():
     score = score_list_string_field(
-        "technical_skills", ["Python", "SQL", "Docker"], ["python", "sql", "Kubernetes"]
+        "skills", ["Python", "SQL", "Docker"], ["python", "sql", "Kubernetes"]
     )
     assert score.matched_count == 2
     assert 0 < score.f1 < 1
 
 
 def test_candidate_profile_schema_roundtrip():
-    profile = CandidateProfile(full_name="Test User", technical_skills=["Python"])
+    profile = CandidateProfile(full_name="Test User", skills=["Python"])
     dumped = profile.model_dump()
     reloaded = CandidateProfile.model_validate(dumped)
     assert reloaded.full_name == "Test User"
+    assert reloaded.skills == ["Python"]
+
+
+def test_candidate_profile_missing_fields_default_safely():
+    # Missing scalar fields -> None; missing collections -> [] — never a
+    # validation error, per the updated schema requirements.
+    profile = CandidateProfile.model_validate({"full_name": "Only Name"})
+    assert profile.email is None
+    assert profile.location is None
+    assert profile.skills == []
+    assert profile.certificates == []
+    assert profile.projects == []
+    assert profile.education == []
+    assert profile.work_experience == []

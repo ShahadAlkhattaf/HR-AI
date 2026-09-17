@@ -1,44 +1,50 @@
 """
 Model registry.
 
-Central place that maps a short config key -> a ResumeExtractionModel
-instance. This is what makes "replacing Model A with Model B" a one-line
-change: the evaluator just iterates over `get_models(["model_a", "model_b"])`
-and never imports a concrete model class itself.
+The registry exposes a stable `served-model` key to the application and
+evaluation pipeline. The actual model served behind that key is selected
+through environment variables.
 
-Add a new candidate model by adding one entry here.
+This allows candidate models to be changed without modifying application
+code or rebuilding the application image.
+
+Examples:
+    Qwen/Qwen2.5-3B-Instruct
+    Qwen/Qwen2.5-7B-Instruct
+    google/gemma-2-2b-it
 """
+
 from __future__ import annotations
 
+import os
 from typing import Dict, List
 
 from .base import ResumeExtractionModel
 from .mock_model import MockModel
-from .claude_model import ClaudeModel
 from .openai_compatible_model import OpenAICompatibleModel
+
+
+MODEL_BASE_URL = os.environ.get(
+    "MODEL_BASE_URL",
+    "http://localhost:8000/v1",
+)
+
+MODEL_ID = os.environ.get(
+    "MODEL_ID",
+    "Qwen/Qwen2.5-3B-Instruct",
+)
 
 
 def _build_registry() -> Dict[str, ResumeExtractionModel]:
     return {
-        # Always available, zero cost - used for pipeline smoke tests.
+        # Always available, used for pipeline smoke tests.
         "mock": MockModel(),
 
-        # Reference commercial frontier baseline (Deliverable 3 comparator).
-        "claude-sonnet": ClaudeModel(model_id="claude-sonnet-4-6"),
-
-        # Example large open-weight candidate served via vLLM/TGI/HF endpoint.
-        # Point base_url at your actual serving endpoint once deployed.
-        "qwen-72b": OpenAICompatibleModel(
-            model_id="Qwen/Qwen2.5-72B-Instruct",
-            base_url="http://localhost:8000/v1",
-            display_name="qwen2.5-72b-instruct",
-        ),
-
-        # Example small open-weight candidate (distillation-style comparison).
-        "qwen-7b": OpenAICompatibleModel(
-            model_id="Qwen/Qwen2.5-7B-Instruct",
-            base_url="http://localhost:8001/v1",
-            display_name="qwen2.5-7b-instruct",
+        # Real model served through an OpenAI-compatible endpoint.
+        "served-model": OpenAICompatibleModel(
+            name=MODEL_ID,
+            model_id=MODEL_ID,
+            base_url=MODEL_BASE_URL,
         ),
     }
 

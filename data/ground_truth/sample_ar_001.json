@@ -1,60 +1,72 @@
 {
-  "full_name": "Sarah Al-Amin",
+  "full_name": "سارة الأمين",
   "email": "sarah.alamin@example.com",
-  "phone": "+966-50-123-4567",
+  "phone": "+966501234567",
+  "location": "الرياض، المملكة العربية السعودية",
+  "summary": "مهندسة برمجيات لديها خمس سنوات من الخبرة في بناء خطوط البيانات والبنية التحتية للتعلم الآلي.",
+  "github": "github.com/sarahalamin",
+  "linkedin": null,
+  "portfolio": null,
+  "skills": [
+    "بايثون",
+    "إس كيو إل",
+    "دوكر",
+    "كوبرنيتيس",
+    "أمازون ويب سيرفيسز",
+    "القيادة",
+    "التواصل",
+    "حل المشكلات"
+  ],
+  "certificates": [
+    {
+      "name": "شهادة AWS للحلول المعمارية المعتمدة",
+      "issuer": "أمازون",
+      "issue_date": "2022",
+      "expiry_date": null
+    }
+  ],
+  "projects": [
+    {
+      "name": "محلل السير الذاتية",
+      "link": "github.com/sarahalamin/resume-parser",
+      "description": "خط أنابيب مفتوح المصدر لتحليل السير الذاتية ثنائية اللغة."
+    }
+  ],
   "education": [
     {
-      "degree": "BSc",
-      "field_of_study": "Computer Science",
-      "institution": "King Saud University",
+      "degree": "بكالوريوس علوم حاسب",
+      "institution": "جامعة الملك سعود",
       "start_year": "2016",
-      "end_year": "2020"
+      "end_year": "2020",
+      "gpa": "3.8"
     }
   ],
   "work_experience": [
     {
-      "job_title": "Software Engineer",
-      "company": "Acme Analytics",
+      "company": "شركة أكمي للتحليلات",
+      "role": "مهندسة برمجيات",
       "start_date": "2020",
       "end_date": "2023",
-      "description": "Built data pipelines and internal tooling in Python."
+      "description": "بناء خطوط بيانات وأدوات داخلية باستخدام بايثون."
     },
     {
-      "job_title": "Senior Software Engineer",
-      "company": "DataCore",
+      "company": "داتاكور",
+      "role": "مهندسة برمجيات أولى",
       "start_date": "2023",
-      "end_date": "Present",
-      "description": "Leads a team building ML infrastructure."
-    }
-  ],
-  "years_of_experience": 5,
-  "technical_skills": [
-    "Python",
-    "SQL",
-    "Docker",
-    "Kubernetes",
-    "AWS"
-  ],
-  "soft_skills": [
-    "Leadership",
-    "Communication",
-    "Problem Solving"
-  ],
-  "certifications": [
-    {
-      "name": "AWS Certified Solutions Architect",
-      "issuer": "Amazon",
-      "year": "2022"
+      "end_date": "حتى الآن",
+      "description": "تقود فريقاً لبناء البنية التحتية للتعلم الآلي."
     }
   ],
   "languages": [
     {
-      "language": "English",
-      "proficiency": "Native"
+      "language": "العربية",
+      "proficiency": "اللغة الأم"
     },
     {
-      "language": "Arabic",
-      "proficiency": "Fluent"
+      "language": "الإنجليزية",
+      "proficiency": "طلاقة"
     }
-  ]
+  ],
+  "years_of_experience": 5,
+  "detected_source_language": "ar"
 }
