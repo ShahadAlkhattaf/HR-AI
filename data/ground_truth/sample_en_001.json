@@ -1,72 +1,93 @@
 {
-  "full_name": "Sarah Al-Amin",
-  "email": "sarah.alamin@example.com",
-  "phone": "+966-50-123-4567",
+  "full_name": "Sample Candidate",
+  "email": "sample@example.com",
+  "phone": "+966-50-000-0000",
   "location": "Riyadh, Saudi Arabia",
-  "summary": "Backend-leaning software engineer with 5 years of experience building data pipelines and ML infrastructure.",
-  "github": "github.com/sarahalamin",
-  "linkedin": "linkedin.com/in/sarah-alamin",
-  "portfolio": null,
+  "summary": "Data Science graduate with hands-on experience building AI pipelines, MLOps systems, and low-level software. Skilled in end-to-end machine learning from data ingestion and model training to containerized deployment and CI/CD. Proven track record delivering production-grade solutions across multiple domains.",
+  "github": "https://github.com/sample-candidate",
+  "linkedin": "https://www.linkedin.com/in/sample-candidate/",
+  "portfolio": "https://sample.dev",
   "skills": [
+    "C++",
+    "Java",
     "Python",
     "SQL",
+    "NoSQL",
+    "R",
+    "PyTorch",
+    "TensorFlow",
+    "Scikit-learn",
+    "XGBoost",
+    "ARIMA",
+    "LSTM",
+    "Pandas",
+    "NumPy",
+    "Apache Spark",
+    "Kafka",
+    "Hadoop",
+    "FastAPI",
+    "Flask",
+    "Node.js",
+    "REST APIs",
+    "PostgreSQL",
+    "MongoDB",
+    "Redis",
+    "AWS App Runner",
+    "AWS S3",
+    "AWS EC2",
+    "AWS EKS",
+    "Git",
     "Docker",
-    "Kubernetes",
+    "CI",
+    "CD (GitHub Actions)",
+    "Linux",
     "AWS",
-    "Leadership",
-    "Communication",
-    "Problem Solving"
+    "CI/CD",
+    "GitHub Actions",
+    "Machine Learning",
+    "NLP",
+    "OOP",
+    "OpenCV"
   ],
   "certificates": [
     {
-      "name": "AWS Certified Solutions Architect",
-      "issuer": "Amazon",
-      "issue_date": "2022",
+      "name": "AWS Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "issue_date": null,
       "expiry_date": null
     }
   ],
   "projects": [
     {
-      "name": "Resume Parser",
-      "link": "github.com/sarahalamin/resume-parser",
-      "description": "Open-source bilingual resume parsing pipeline."
+      "name": "Job Application Orchestrator",
+      "link": "https://github.com/sample-candidate/job-orchestrator",
+      "description": "Reduced per-application turnaround to under 25 seconds by orchestrating a four-agent LLM pipeline. Surfaced top 30 job matches in under 550ms via a three-stage matching agent over 10K+ listings."
+    },
+    {
+      "name": "End-to-End MLOps Forecasting System",
+      "link": "https://github.com/sample-candidate/load-forecasting",
+      "description": "Trained an energy demand forecasting model using XGBoost on 1.3M records with RandomSearch hyperparameter tuning. Containerized the inference service with FastAPI and Docker for portable, reproducible deployments."
     }
   ],
   "education": [
     {
-      "degree": "BSc Computer Science",
-      "institution": "King Saud University",
-      "start_year": "2016",
-      "end_year": "2020",
-      "gpa": "3.8"
+      "degree": "Bachelor of Science in Data Science",
+      "institution": "University of Sample",
+      "start_year": "2020",
+      "end_year": "2024",
+      "gpa": "3.8/4.0"
     }
   ],
   "work_experience": [
     {
-      "company": "Acme Analytics",
-      "role": "Software Engineer",
-      "start_date": "2020",
-      "end_date": "2023",
-      "description": "Built data pipelines and internal tooling in Python."
-    },
-    {
-      "company": "DataCore",
-      "role": "Senior Software Engineer",
-      "start_date": "2023",
-      "end_date": "Present",
-      "description": "Leads a team building ML infrastructure."
+      "company": "Sample Analytics Co.",
+      "role": "AI Engineer (Contract)",
+      "start_date": "Aug. 2022",
+      "end_date": "May 2026",
+      "description": "Engineered an end-to-end orthomosaic pipeline for precision agriculture using OpenCV and GDAL, transforming UAV imagery into georeferenced maps. Implemented keypoint detection and feature matching algorithms to build a scalable processing backbone for UAV data. Developed an automated..."
     }
   ],
-  "languages": [
-    {
-      "language": "English",
-      "proficiency": "Native"
-    },
-    {
-      "language": "Arabic",
-      "proficiency": "Fluent"
-    }
-  ],
-  "years_of_experience": 5,
+  "languages": [],
+  "years_of_experience": null,
   "detected_source_language": "en"
 }
