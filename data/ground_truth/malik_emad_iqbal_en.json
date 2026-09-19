@@ -85,13 +85,6 @@
       "start_date": "Aug. 2022",
       "end_date": "May 2026",
       "description": "Engineered an end-to-end orthomosaic pipeline for precision agriculture using OpenCV and GDAL, transforming UAV imagery into georeferenced maps. Implemented keypoint detection and feature matching algorithms to build a scalable processing backbone for UAV data. Developed an automated..."
-    },
-    {
-      "company": null,
-      "role": null,
-      "start_date": null,
-      "end_date": null,
-      "description": null
     }
   ],
   "languages": [],
