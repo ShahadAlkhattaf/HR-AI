@@ -1,0 +1,91 @@
+{
+  "full_name": "James Walker",
+  "email": "",
+  "phone": "",
+  "location": "Python, MLO",
+  "summary": "I am an experienced AI Engineer with 8 years of experience, specializing in building end-to-end AI systems, including data preparation, classical machine learning, deep learning, and LLM deployment. I have strong hands-on expertise in Python, MLOps, and LLM workflows, along with excellent communication skills to teach complex concepts effectively. My background includes developing practical curricula and mentoring students through capstone projects in immersive AI training programs.",
+  "github": "",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [
+    "Programming & Development: Python",
+    "GitHub",
+    "Model deployment",
+    "CI/CD",
+    "Inference pipelines",
+    "Code review",
+    "Automation",
+    "Version control",
+    "Machine Learning & Deep Learning: Classical ML",
+    "Regression",
+    "Classification",
+    "Clustering",
+    "Deep learning",
+    "Model training",
+    "Model evaluation",
+    "Explainability",
+    "Data & Analytics: Data understanding",
+    "Data cleaning",
+    "Feature engineering",
+    "Exploratory Data Analysis (EDA)",
+    "Data pipelines",
+    "Data visualization",
+    "Data management",
+    "Statistical analysis",
+    "MLOps & Deployment: MLOps",
+    "Monitoring",
+    "Drift detection",
+    "Retraining strategies",
+    "Scalability",
+    "Performance optimization",
+    "Latency control",
+    "Large Language Models & AI Systems: LLMs",
+    "RAG",
+    "Agent workflows",
+    "LLMOps",
+    "Evaluation",
+    "Cost management",
+    "Latency optimization",
+    "AI system design",
+    "Tools & Platforms: Python libraries (TensorFlow",
+    "PyTorch",
+    "Scikit-learn)",
+    "Jupyter Notebooks",
+    "Docker",
+    "Kubernetes",
+    "Cloud platforms",
+    "Git",
+    "Terraform",
+    "MLflow"
+  ],
+  "certificates": [],
+  "projects": [],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science\tMay 2017",
+      "gpa": "3.7"
+    },
+    {
+      "degree": "Relevant Coursework: Data Structures, Algorithms, Operating Systems, Database Systems, Software Engineering, Machine Learning"
+    }
+  ],
+  "work_experience": [
+    {
+      "start_date": "Jan 2021",
+      "end_date": "Feb 2026",
+      "company": "Endava | London, UK",
+      "role": "Led comprehensive AI training sessions on Python, ML, DL, and LLM deployment for cohorts of up to 50 learners, focusing on production-ready AI system development and MLOps best practices.",
+      "description": "Designed and delivered curriculum content covering data preparation, feature engineering, classical ML, deep learning architectures, and end-to-end AI deployment pipelines using industry-standard tools like TensorFlow and PyTorch. Supervised students through capstone projects involving LLMs, RAG, and agent workflows, providing practical feedback on code quality, system design, and performance optimization. Collaborated with program staff to refine assessments and track learner progress, ensuring effective knowledge transfer and skill acquisition in fast-paced bootcamp environments. Reviewed and improved lab exercises and assignments, emphasizing tradeoffs between performance, explainability, and cost in AI system deployment. Mentored teams working on real-world AI projects, including model evaluation, monitoring, and retraining strategies using cloud-based MLOps frameworks. Facilitated student understanding of CI/CD pipelines, monitoring, drift detection, and scalable deployment practices aligned with industry standards. Contributed to curriculum development for an immersive AI bootcamp, integrating latest advancements in LLMs, MLOps, and AI system optimization. Maintained a GitHub portfolio showcasing relevant AI projects, including deployment scripts, MLOps pipelines, and LLM workflows. Communicated complex AI concepts clearly to diverse audiences, enhancing learning outcomes and student engagement. Collaborated with cross-functional teams to ensure curriculum content stayed aligned with evolving AI industry standards and technologies. Led hands-on labs and build sprints focusing on real-world applications of AI, ensuring learners gained practical, applicable skills."
+    },
+    {
+      "start_date": "Aug 2017",
+      "end_date": "Dec 2021",
+      "company": "esynergy | London, UK",
+      "role": "Developed and delivered targeted training modules on Python programming, classical ML, and deep learning frameworks to enhance learner technical skills.",
+      "description": "Guided students through the deployment of AI models using Docker, Kubernetes, and cloud platforms, emphasizing scalable and reliable system design. Provided technical mentorship on LLM workflows, including RAG and agent-based systems, to support advanced AI application development. Assisted learners in evaluating AI models for performance, cost, and latency, fostering a deep understanding of tradeoffs in production environments. Facilitated interactive sessions on MLOps principles, including CI/CD pipelines, model monitoring, and drift detection, for practical system management. Reviewed student code for adherence to best practices, ensuring efficient, maintainable, and production-quality AI solutions. Supported learners in preparing and presenting AI system demos, demonstrating deployment pipelines, and operational metrics. Contributed to curriculum refinement by incorporating emerging AI research and industry case studies, ensuring relevance and depth."
+    }
+  ],
+  "languages": [],
+  "years_of_experience": 8.0,
+  "detected_source_language": "en"
+}

@@ -1,0 +1,110 @@
+{
+  "full_name": "Professional Profile",
+  "email": "",
+  "phone": "2018-2021",
+  "location": "Montreal, QC",
+  "summary": "AI and Data Science developer with experience in Machine Learning, Deep Learning, Computer Vision, and modern deployment pipelines. I enjoy building solutions that move from research to real, functional applications. That includes collecting data, training models, creating APIs, and deploying web interfaces or prediction tools in production environments. I’m comfortable working across the stack when needed, and, honestly, that blend of exploration and practical delivery is what keeps me motivate",
+  "github": "",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [
+    "Languages: Python",
+    "Java",
+    "C++",
+    "JavaScript",
+    "SQL",
+    "HTML/CSS",
+    "AI/ML: PyTorch",
+    "TensorFlow",
+    "scikit-learn",
+    "WandB",
+    "NLP",
+    "Computer Vision",
+    "Deployment & Web: Flask",
+    "React",
+    "Streamlit",
+    "Docker",
+    "Google Cloud Run",
+    "Firebase",
+    "Azure AI",
+    "Google Document AI",
+    "Tools: Git",
+    "GitHub",
+    "Linux",
+    "LaTeX",
+    "Jupyter",
+    "CI/CD"
+  ],
+  "certificates": [],
+  "projects": [
+    {
+      "name": "University of Montreal 01/2024 - 04/2024",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Analyzed data from doi:10.1016/j.buildenv.2022.108970 to predict thermal comfort levels.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Performed feature engineering, data cleaning, and visualization for model preparation.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Trained and compared ML models with cross-validation using scikit-learn.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Deployed a containerized Flask API via Docker on Google Cloud Run.",
+      "link": "",
+      "description": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Professional Master’s in Computer Science - AI and Data Science",
+      "institution": "University of Montreal, Canada"
+    },
+    {
+      "degree": "Specialization: Machine Learning, Data Science"
+    },
+    {
+      "degree": "Research Master’s in Computer Science - Computer Vision",
+      "institution": "Northwest Polytechnical University of Xi’an, China",
+      "end_year": "Research project: driver behavior detection using road surveillance cameras."
+    },
+    {
+      "degree": "Bachelor’s in Computer Science - Software Engineering",
+      "institution": "University of Thies, Senegal"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "AI Developer Intern - Fenetec",
+      "role": "Montreal, QC 05/2025 – 11/2025",
+      "description": "Built a full proof of concept automating compliance verification for notary and legal documents in Quebec. Developed an information extraction pipeline using PaddleOCR, Doctr, LLM components, and paid APIs (Google Document AI, Azure AI) to improve recognition accuracy. Deployed models and interfaces with Flask (backend) and React (frontend) on Google Cloud Run, with secure storage via Firebase. Academic Project - NHL Data Analysis and Visualization University of Montreal 09/2024 - 12/2024"
+    },
+    {
+      "start_date": "2018",
+      "end_date": "2021",
+      "company": "Built interactive dashboards with Plotly and integrated them into a Jekyll blog.",
+      "role": "Designed an expected-goals (xG) model using logistic regression and tracked experiments with WandB.",
+      "description": "Deployed a real-time prediction tool using Flask, Streamlit, and Docker."
+    }
+  ],
+  "languages": [
+    {
+      "language": "French",
+      "proficiency": "Fluent"
+    },
+    {
+      "language": "English",
+      "proficiency": "Advanced"
+    }
+  ],
+  "years_of_experience": null,
+  "detected_source_language": "en"
+}

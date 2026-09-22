@@ -1,0 +1,376 @@
+{
+  "full_name": "Salman Balik",
+  "email": "",
+  "phone": "",
+  "location": "Ms, API",
+  "summary": "Seasoned Engineering Lead with 8+ years in software engineering, data platforms, and AI, including 4+ years leading teams in scalable authentication/authorization systems. Expertise in Python-based LLMs, API design, containerization, and cloud-native architectures (AWS, Azure). Certified in AWS, Azure, and DevOps; proficient in agile, CI/CD, TDD, and performance optimization. Multiple chatbots, audiobots and AI agent projects under project repository. Delivered secure identity platforms, boostin",
+  "github": "",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [
+    "Programming: Java",
+    "Python",
+    "SQL",
+    "C++",
+    "PowerShell",
+    "AI/ML Frameworks: TensorFlow",
+    "PyTorch",
+    "Keras",
+    "Scikit-learn",
+    "spaCy",
+    "NLTK",
+    "Amazon SageMaker",
+    "Amazon Bedrock",
+    "Cloud Platforms: Azure (Synapse",
+    "Data Factory",
+    "IoT Hub)",
+    "AWS (CDK",
+    "CLI",
+    "CodeGuru",
+    "RDS)",
+    "Google Cloud (Public/Private)",
+    "Data Engineering: ETL Pipelines",
+    "Data Warehousing",
+    "Microsoft Fabric",
+    "Apache Spark",
+    "Hadoop",
+    "Embedded Systems: Arduino",
+    "DsPic",
+    "PIC",
+    "FPGA",
+    "RISC-V",
+    "Databases: SQL Server",
+    "MongoDB",
+    "NoSQL",
+    "VectorDB",
+    "DevOps: Jenkins",
+    "GitHub Actions",
+    "CI/CD Pipelines",
+    "AWS DevOps",
+    "TDD",
+    "Code Reviews",
+    "Data Visualization: Power BI",
+    "Cybersecurity: Authentication/Authorization",
+    "Data Encryption",
+    "GDPR Compliance",
+    "Jump Servers",
+    "Data Privacy",
+    "API Gateways",
+    "Networking",
+    "Specialized: Containerized Microservices",
+    "Orchestration & Service Mesh",
+    "Performance Engineering",
+    "Cloud Optimization",
+    "Agile Methodologies",
+    "API Design/Development"
+  ],
+  "certificates": [
+    {
+      "name": "Databricks Fundamentals Accreditation, Databricks (2025)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Microsoft Certified: Azure Data Engineer Associate (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "PMP Certification (2023)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Google Cloud Professional (2023)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "AWS Certified Data Analytics (2023)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Cloudera Certified Professional (CCP) (2022)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Databricks Certified Associate Developer for Apache Spark (2022)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Certified Data Management Professional (CDMP) (2022)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "AWS Certified DevOps Engineer – Professional, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "AWS Certified (CLI) Specialty, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "AWS Cloud Practitioner Essentials, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "AWS Cloud Development Kit Primer, AWS 2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Amazon CodeWhisperer, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Amazon SageMaker: Build an Object Detection Model, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Building Generative AI Applications Using Amazon Bedrock, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "AWS Dedicated Cloud: Responsible AI/ML, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Developing Machine Learning Applications, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Generative AI for Executives, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Improve Code Quality with Amazon CodeGuru Reviewer, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Machine Learning Essentials for Business and Technical Decision Makers, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Machine Learning Terminology and Process, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Machine Learning for Business Challenges, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Machine Learning: Art of the Possible, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Math for Machine Learning, AWS (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Certified Data Privacy Solutions Engineer, Udemy (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Computer Networks for Physical Security Systems Installers, Udemy (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Master Course: Edge AI and Edge Computer Vision, Udemy (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Python for Deep Learning: Build Neural Networks in Python, Udemy (2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "AI-Driven Smart City Management Dashboard (Freelance Consultant, 2024): Designed a scalable backend with transport, communication, road, train, air, and drone infrastructure for urban analytics, deploying ML models via CI/CD, improving planning accuracy by 30% in fast-paced municipal environments.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Predictive Urban Infrastructure API (Baker Tilly, 2023): Created a RESTful API with Python and MongoDB on Azure, integrating ML for rail/motorway maintenance, demonstrating full-stack ownership from urban concept to launch.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "AI-Powered Urban Policy Platform (Minibyte, 2023): Built full-stack chatbot using Python and Azure, integrating APIs and VectorDB, reducing policy response time by 50% and boosting stakeholder engagement by 40%.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Graph Neural Networks for Supplier Product Matching (DW UK Ltd, 2024): Designed an AI-driven product-matching engine using GNNs and BERT embeddings to unify supplier catalogs with Amazon listings. Tools: Databricks, Hugging Face Transformers, Neo4j, PyTorch Geometric. Led a team of 8 engineers to integrate the model into existing data pipelines, increasing product match accuracy by 63%.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Federated Multi-Model Alzheimer’s Disease Detection (University of Huddersfield, 2025): Researched and developed a privacy-preserving federated learning pipeline for Alzheimer’s detection using MRI datasets. Combined CNNs, Random Forest, and SVM in a multi-model knowledge distillation approach, improving generalization across distributed hospital nodes. Tools: Flower, PyTorch, TensorFlow, Docker, Azure ML. Collaborated with a team of researchers and clinicians, ensuring GDPR compliance and cross-institutional deployment feasibility.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "IoT-Based Smart Urban Authentication System (Freelance, 2021): Designed Java/C++ system with Arduino + AWS IoT Core for secure access in agricultural fields and transit hubs, enabling MFA via API gateways.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "DsPic-Controlled Robotic Arm(Minibyte,2023) Built a teleoperating robotic arm for industrial automation using DsPic microcontrollers with PID control algorithms, achieving precision in repetitive tasks. Tools: MATLAB Simulink, MPLAB X IDE. Coordinated with hardware engineers for calibration and testing in real-world industrial settings.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "FPGA-Based AES Encryption (Center of Advance Research & Sciences, 2022): Implemented AES encryption on FPGA Artix-7 to reduce latency by 30% in secure data transmission. Tools: Verilog, Xilinx Vivado, RISC-V Softcore on Artix-7. Worked in a multidisciplinary team, ensuring resilience for defense and aerospace systems.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Hydroponics Field Development Platform (Freelance, Dubai, 2024): Built low-power networks with Java and Azure IoT Hub for authenticated urban agriculture data, compliant with sustainability standards.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Generative AI Chatbot with Amazon Bedrock (DW UK LTD, 2024): Built a transformer-based customer support chatbot leveraging Amazon Bedrock and Hugging Face models, reducing response time by 50%. Tools: AWS SageMaker, Bedrock APIs, PyTorch. Worked in a cross-functional agile team to integrate with production systems, boosting customer engagement by 40%.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Arduino-Based Smart Home Automation (Freelance, 2020): Designed an IoT system for lighting and HVAC control with Arduino + AWS IoT Core, enabling real-time remote access. Tools: Arduino IDE, AWS IoT Hub, MQTT. Delivered collaboratively with embedded engineers and cloud architects, providing scalable automation for client.",
+      "link": "",
+      "description": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Artificial Intelligence, University of Huddersfield, UK\t2024–2025"
+    },
+    {
+      "degree": "Relevant Coursework: Machine Learning, AI Planning, Deep Learning for Self-healing Modeling, Natural Language Processing for Policy Analysis, Federated Learning for Biased and Unbiased data for Edge computing, Geospatial Data Mining, with emphasis on AI-driven sustainable planning and privacy-preserving techniques.",
+      "institution": "Achievements: Achieved 6 A's out of 8 modules; Graduated with distinction in AI Planning",
+      "end_year": "Funded by Mudie’s Fund scholarship."
+    },
+    {
+      "degree": "Research Focus: Pioneered federated learning for privacy-preserving multi-model distillation in smart healthcare networks, integrating cryptographic methods for secure sensitive data aggregation in multi-domain systems."
+    },
+    {
+      "degree": "Bachelor of Electrical & Computing Engineering, NUST, Islamabad, Pakistan\t2019– 2023",
+      "institution": "Achievements: Defense Funded project “AI-Enhanced AES-256 Implementation on RISC-V Softcore Processor for IoT Networks”; completed internships in AI applications for defense purposes.",
+      "end_year": "Fully funded by the Government of Pakistan scholarship."
+    },
+    {
+      "degree": "Relevant Coursework: Artificial Intelligence, Computer Vision, Cryptography, Machine Learning."
+    }
+  ],
+  "work_experience": [
+    {
+      "start_date": "Sep 2025",
+      "end_date": "Present",
+      "company": "Lead 15-engineer team enhancing and red-teaming frontier LLMs (Claude sonnet-4.5) for top AI labs.",
+      "role": "Design & execute adversarial “model wrecking” frameworks, jailbreak detection, and",
+      "description": "constitutional AI guardrails. Improved safety benchmarks by 75%+. Drive instruction finetuning using PEFT, QLoRA, and RLHF; build production RAG pipelines and auto-generated LLM APIs (OpenAPI, function-calling agents). Own Java-based OAuth2.1/OpenID Connect identity platform serving millions of daily authentications at 79% uptime. Spearheaded AI integrations for rail and motorway systems, optimizing real-time traffic flow and predictive maintenance using federated learning models."
+    },
+    {
+      "start_date": "Aug 2024",
+      "end_date": "Sep 2025",
+      "company": "Led 10 data scientists building enterprise LLM applications and privacy-first ML platforms (Azure Fabric, Databricks, AWS Bedrock).",
+      "role": "Deployed multi-tenant generative chatbots and agentic RAG systems with homomorphic encryption and federated learning.",
+      "description": "Improved data integrity 78% - Reduced deployment time 50% via MLflow, GitHub Actions, Kubernetes, and feature stores. Developed in house CRM system with more added and customized features as compared to Odoo and Linnworks. Developed forecasting AI/ML models for advertisement campaigns management systems, increasing sales and ROI from 7.32 to 54."
+    },
+    {
+      "start_date": "Jan 2024",
+      "end_date": "Aug 2024",
+      "company": "Advised on $1.2B LNG terminal acquisition: designed AI-driven predictive maintenance models for critical infrastructure and electrical systems risk assessment.",
+      "role": "Built hybrid Edge-AI, cloud simulation frameworks forecasting terminal uptime under extreme conditions, reducing projected CAPEX risk exposure by 18%",
+      "description": "Delivered technical due-diligence reports combining electrical engineering analysis with privacy-preserving ML for regulatory approvals (recommendation is available on LinkedIn)."
+    },
+    {
+      "start_date": "Jul 2023",
+      "end_date": "Dec 2023",
+      "company": "Led AI planning and risk modelling for $800M Bus Rapid Transit (BRT) extension.",
+      "role": "Developed multimodal simulation platform (traffic flow + energy demand) using Graph Neural Networks and reinforcement learning agents, cutting projected operational risk by 22%",
+      "description": "Designed economic corridor at Chabahar for Afghan transit trade with AI planning and ML model based risk assessment system (recommendation is available on LinkedIn)."
+    },
+    {
+      "start_date": "Dec 2023",
+      "end_date": "Aug 2024",
+      "company": "Directed 45-member team shipping Edge AI + LLM solutions on NVIDIA Jetson, Raspberry Pi, and AWS IoT Core.",
+      "role": "Delivered on-device TinyML + secure federated learning systems with AES-256 encryption for healthcare wearables.",
+      "description": "Spearheaded research-to-product pipelines for AI solutions in healthcare and agriculture, including chatbots, retina-scan biometric apps, and smart farm automation systems. Pioneered edge AI solutions combining Arduino, Raspberry Pi, TensorFlow Lite, and AWS IoT. Core, enabling predictive crop monitoring and real-time resource optimization. Supervised a 10-member interdisciplinary team, embedding LLMs, CNNs, and federated edge-learning techniques into market-ready products. Established secure AI deployment pipelines with jump servers, AWS IAM, and containerized microservices, ensuring robust field usability."
+    },
+    {
+      "start_date": "Jul 2022",
+      "end_date": "Jan 2024",
+      "company": "Researched and engineered ETL/ELT pipelines using Python, SQL, Databricks, Apache Spark, and cloud-native services to support advanced AI analytics.",
+      "role": "Built data preprocessing and feature engineering pipelines for ML models, improving",
+      "description": "predictive accuracy and reducing query latency by 60%. Applied data security research (homomorphic encryption, access-controlled RDS tuning) ensuring compliance with GDPR and ISO data standards. Collaborated with AI researchers to convert experimental ML workflows into enterprise-grade data products."
+    },
+    {
+      "start_date": "Jan 2022",
+      "end_date": "Jul 2023",
+      "company": "Developed secure embedded systems with RISC-V Softcore on FPGA Artix-7, applying Verilog for control logic in urban IoT integrations and AI-backed security for smart city backends.",
+      "role": "Freelance AI & Data Consultant, Fiverr/Upwork, Remote\t2014–Present",
+      "description": "Delivered 50+ AI research-driven solutions, including LLMs, generative chatbots, knowledge distillation models, and computer vision applications using TensorFlow, PyTorch, Hugging Face, and Amazon Bedrock. Built custom data science pipelines (ETL + ML integration) for energy, IT, and engineering clients, optimizing predictive insights and cost-efficiency. Researched and implemented cybersecurity AI solutions, including jump-server monitoring, intrusion detection (IDS), and anomaly detection ML models deployed on AWS + Azure cloud infrastructures. Authored technical papers, SOPs, and TORs aligning with IEEE and PEC standards and industry confidentiality protocols."
+    },
+    {
+      "start_date": "Jun 2021",
+      "end_date": "Oct 2022",
+      "company": "Conducted applied research on deep learning architectures (CNNs, RNNs, Transformers) for healthcare and security datasets, using TensorFlow, PyTorch, and Scikit-learn.",
+      "role": "Built computer vision prototypes with OpenCV, Mediapipe, and YOLO for facial recognition and object detection, later scaled into client products.",
+      "description": "Contributed to open-source AI research codebases on GitHub, maintaining clean, modular, and reproducible pipelines. Researched deep learning architectures (CNNs, RNNs, Transformers) using Python, building backend prototypes for computer vision with REST APIs and cloud deployment."
+    }
+  ],
+  "languages": [],
+  "years_of_experience": null,
+  "detected_source_language": "en"
+}

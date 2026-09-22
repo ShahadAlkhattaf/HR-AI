@@ -1,0 +1,205 @@
+{
+  "full_name": "Chir Gowda",
+  "email": "",
+  "phone": "",
+  "location": "Edmonton, AB",
+  "summary": "",
+  "github": "",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [
+    "LANGUAGES — Python",
+    "C++",
+    "Julia",
+    "Java",
+    "SQLite",
+    "NoSQL",
+    "RISC V",
+    "MIPS",
+    "XML",
+    "JS",
+    "SOFTWARE— Agile",
+    "Scrum",
+    "Git",
+    "JUnit",
+    "Pickle",
+    "Valgrind",
+    "GitHub",
+    "Android Studio",
+    "TensorFlow OneDNN",
+    "FIJI",
+    "Napari",
+    "MACHINE LEARNING & DEEP LEARNING — CNNs",
+    "RNNs",
+    "Vit",
+    "WNet3D",
+    "VNet",
+    "Unet",
+    "SegResNet",
+    "Quantization",
+    "Pruning",
+    "Reinforcement",
+    "Learning (Policy Gradient Optimization",
+    "MDPs)",
+    "Teacher Forcing NLP",
+    "Pytorch",
+    "Torchvision",
+    "Tensorflow",
+    "Landmark Normalization",
+    "Dataset Pipeline Design",
+    "Bounding Box",
+    "Visualization",
+    "Debugging Confidence Metrics",
+    "SOFTWARE ENGINEERING — Responsive UI/UX Design",
+    "DialogFlox CX",
+    "Vertex AI",
+    "Dynamic RecyclerViews",
+    "Real-Time Systems",
+    "Modular Architectures",
+    "Scalability",
+    "for Edge Devices",
+    "Secure Access Management",
+    "LIBRARIES & FRAMEWORKS — MongoDB",
+    "PyGame",
+    "Django",
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "Yfinance",
+    "RL-Glue",
+    "MediaPipe",
+    "YOLOv5",
+    "OpenCV",
+    "Glide",
+    "Firebase Firestore",
+    "Firebase Authentication"
+  ],
+  "certificates": [
+    {
+      "name": "A Complete Reinforcement Learning System (Capstone)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "| Prediction and Control with Function Approximation   |",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Fundamentals of Reinforcement Learning",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "| Sample-based Learning Methods",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "| Reinforcement Learning",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "ASL Sign Detection",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Programmed real-time hand gesture recognition system with 100% accuracy for 26 classes (A-Z) using Python, OpenCV, and MediaPipe.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Preprocessed 2,600 images (100 per class) with landmark normalization for efficient gesture representation.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Trained TensorFlow model achieving 95%+ accuracy and <50ms latency for real-time predictions.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Utilized Pickle, NumPy, and OneDNN for model serialization and hardware compatibility",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Matata",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Developed event management app using Java, XML, and Firebase Firestore, supporting 50+ users for event discovery and registration.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Collaborated in an Agile team, meeting milestones with Scrum and achieving 95% positive beta feedback.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Integrated QR code scanner for event check-ins, reducing manual effort by 70%, and ensured real-time data sync with 95% crash-free sessions.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Designed responsive UI with Glide-powered image uploads, ensuring sub-2-second load times on mid-range devices",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Traffic Sign Detection",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Traffic sign detection system with 95% accuracy on GTSRB using Python, PyTorch, and OpenCV.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Designed a custom CNN with data augmentation, batch normalization, and adaptive learning rate for robust performance.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Real-time detection pipeline with YOLOv5, achieving <50ms inference latency and <5% false-positive rate.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Optimized model with quantization/pruning for edge device deployment and maintained a well-documented codebase with Git.",
+      "link": "",
+      "description": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.Sc. Honors in Computer Science, University of Alberta",
+      "start_year": "2021"
+    },
+    {
+      "degree": "Coursework: Intro to Artificial Intelligence, Intro to Reinforcement Learning, Machine Learning I & II, NLP, Search and Simulation I & II, Information Retrieval, Visual Recognition I & II, Capstone Project - AI, Capstone project - NLP, DS & Algorithms, Algorithmics in Practice, Intro to Software Engineering, File & Database Management, Computer theory, Low-Level Programming, Computer Organization and Architecture I, Parallel & Distributed Systems, OS Concepts, Discrete Mathematics, Tangible Computing I & II, Calculus I - V, Linear Algebra I & II, Applied Statistics I & II."
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "Robarts Research Institute, Machine Learning Engineer\t05/2025 – 09/2025 | London, ON",
+      "role": "Built and optimized ML pipelines for lightsheet microscopy, including preprocessing, image enhancement, and scalable 3D segmentation, enabling memory-efficient deep learning training. on terabyte-scale volumetric data stored in Zarr formats.",
+      "description": "Trained and ran inference on 3D segmentation models (WNet3D, VNet, SegResNet, StarDist) in self-supervised/unsupervised settings, resulting in 0.81±0.004 accuracy. Built visualization and QC tools with Napari, Neuroglancer, ITK-SNAP, and Fiji to inspect data and segmentations Enhanced scientific computing infrastructure by extending CLI tools, integrating GPU-aware job scheduling (kslurm) Helped build data dashboards for data annotation and QC Collaborated with staff and students on research publications University of Alberta, Research Assistant\t05/2024 – 05/2025 | Edmonton, AB Implemented RL-based text generation by deriving task-agnostic, step-wise reward functions from teacher-forcing-trained seq2seq models. Utilized MDP frameworks and policy gradient optimization to address exposure bias with non-parallel datasets (1M OpenSubtitles samples). Achieved a 23% improvement in BLEU-2 and 16.5% in BLEU-4 for dialogue generation. Outperformed baselines in paraphrase generation, obtaining the best iBLEU scores. University of Alberta, Research Assistant\t09/2022 – 04/2023 | Edmonton, AB Implemented an automated document generation system in Julia, significantly reducing manual reporting time by 50%. Maintained GitHub repository, ensuring version control, and created a static website for project deliverables."
+    }
+  ],
+  "languages": [],
+  "years_of_experience": null,
+  "detected_source_language": "en"
+}

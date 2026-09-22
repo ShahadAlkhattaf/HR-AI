@@ -1,0 +1,104 @@
+{
+  "full_name": "M O N A AF A",
+  "email": "",
+  "phone": "",
+  "location": "",
+  "summary": "",
+  "github": "",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [],
+  "certificates": [],
+  "projects": [
+    {
+      "name": "Led a team project focused on AI and data-driven decision-making",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Delivered solutions and presented outcomes",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Selected as programme winner",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "E D U C A T I O N",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "MSc Applied Artificial Intelligence and Data Analytics Distinction | Bradford University | 2025",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "BSc Civil Engineering with Honours 2:2 | University of Manchester | 2019",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "P R O F E S S I O N A L D E V E L O P M E N T",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "NFCE Cert in Data| Netcom Training | Completion April 2026",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Egypt Turing Scheme Summer Programme | 2025",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "International Masters Summer School | 2025",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "AI Ethics & Agile Project Leadership Programme | 2025",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "L A N G U A G E S",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "English – Native\t· Arabic – Native",
+      "link": "",
+      "description": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Developed an end-to-end machine learning pipeline from data preparation to evaluation"
+    },
+    {
+      "degree": "Applied machine learning, deep learning, and neural network techniques",
+      "institution": "Performed feature engineering and model comparison",
+      "end_year": "Built 10+ dashboards using Power BI across different datasets"
+    },
+    {
+      "degree": "Designed visualisations to support understanding and decision-making",
+      "institution": "Used filters and drill-downs to improve usability",
+      "end_year": "Explained dashboard insights to users"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "Delivered step-by-step training sessions on Power BI and Tableau to a group of 20+ learners",
+      "role": "Explained technical concepts in a clear and structured way to non-technical audiences",
+      "description": "Supported learners in understanding data tools and analytical workflows Provided guidance and feedback to improve understanding and performance P R O J E C T S"
+    }
+  ],
+  "languages": [],
+  "years_of_experience": null,
+  "detected_source_language": "en"
+}

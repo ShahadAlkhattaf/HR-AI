@@ -1,0 +1,127 @@
+{
+  "full_name": "WORK EXPERIENCE",
+  "email": "",
+  "phone": "2024-2022",
+  "location": "Calgary, AB",
+  "summary": "",
+  "github": "https://github.com/M4ttoF",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [
+    "Spoken Languages : English (Fluent)",
+    "Japanese (Conversational)",
+    "Strong communication and presentation skills",
+    "Conflict resolution",
+    "INTERESTS",
+    "Passionate about Discrete Mathematics",
+    "Enjoy problem solving of any sort including",
+    "LeetCode",
+    "chess puzzles",
+    "math contests",
+    "or interpersonal conflicts"
+  ],
+  "certificates": [],
+  "projects": [
+    {
+      "name": "HISTOPATHOLOGIC CANCER DETECTION | Private Repository",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Analyzes given histopathologic scans of lymph node sections and determines if cancer can be identified based on the PatchCamelyon dataset",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "After rigorous hyperparameter optimization a training accuracy of 86.2% and and testing accuracy of 84.6%",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "was achieved",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Model was constructed in consisted of 12 layers, 7 convolutional layers , 3 max pooling layers , 1 flatten layer , and 1 dense layer",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "ILLEGAL WILDLIFE TRADE REDUCTION | Private Repository",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Computer Vision model built with Azure ML Studio for Cloud Computing as well as Custom Vision that uses thermal imaging from a drone to identify wildlife as well as poachers in real time, assisting authorities and wildlife preservationists",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Precision score of 81.2% and selected as the winner of the AltaML X Microsoft Hackathon",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Vast improvement when compared to previously existing model SPOT (Systematic POacher deTector) which capped out at an accuracy of only 57%",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "NLP DISASTER TWEET AI | https://github.com/M4ttoF/NLP-Disaster-Tweets",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Deep Learning model developed with TensorFlow and Keras which is made to discern if the given tweet is concerning a natural disaster, where final iteration reach an average accuracy of 80%",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Lead Developer of project, maintained individual workload whilst managing two other developers to ensure maximum productivity",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Analyzed different ML models such as LSTM and BERT as to figure out which would procure highest accuracy",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "EXTRACURRICULAR ACTIVITIES",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "2024-2022\tGolden Key Honors Society\tInvited due to academic achievement 2022\tAltaML X Microsoft Hackathon\tWinning project mentioned above 2022-17\tUniversity of Windsor\tComputer Science/Math Tutor",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "2021-17\tSchulich Medicine and Dentistry\tAnatomist Dissection Assistant",
+      "link": "",
+      "description": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "MASTER OF SCIENCE IN COMPUTER SCIENCE | University of Windsor Artificial Intelligence Stream with Co-Op"
+    },
+    {
+      "degree": "BACHELOR OF COMPUTER SCIENCE (HONORS) | University of Windsor Specialization in Artificial Intelligence"
+    },
+    {
+      "degree": "Minor in Mathematics"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "ALTAML | ASSOCIATE MACHINE LEARNING DEVELOPER",
+      "role": "September 2022 - December 2022 | Calgary, AB",
+      "description": "Utilized Azure and TensorFlow to create and optimize Time Series Machine Learning models to provide a 7 day forecast of hourly solar radiation Built end to end data pipelines/infrastructure for AI models that were used by clients Created tool that synchronizes Azure database with with NASA’s Power Project database Spearheaded weekly presentations with clients showing progress and ensuring our model would be properly addressing their needs to the greatest extent possible Trained directly with current machine learning experts as well as Microsoft technical experts UNIVERSITY OF WINDSOR | GRADUATE TEACHING ASSISTANT Jan 2023 - April 2025 | Windsor, ON Collaborated with professors to design and deliver lectures, workshops, and practical sessions focused on fundamental concepts and advanced applications of artificial intelligence (AI) Provided one-on-one guidance and mentoring to students, offering support and clarification on AI principles, algorithms, and programming languages. ITOS ONCOLOGY | SOFTWARE ENGINEER/DATA SCIENTIST INTERN October 2020 - April 2021 | Windsor, ON Utilized Python to create a custom data visualization tool for geneticists to easily work with VCF files too large for Excel Provided geneticists with an automated tool for analyzing gene sequences and their relation to the SARs-Cov-2 virus with the BLAST database SKILLS/INTERESTS TECHNICAL SKILLS Languages : Python, Java, Javascript, C#, C, SQL Libraries/Services : Azure, TensorFlow, Custom Vision, GitHub, Cloud Computing Machine Learning : Time Series Forecasting, Computer Vision, NLP, Data Mining Misc : SaaS, CI/CD, Object Oriented Programming, Data Structures, Algorithm Optimization"
+    }
+  ],
+  "languages": [],
+  "years_of_experience": null,
+  "detected_source_language": "en"
+}

@@ -1,0 +1,143 @@
+{
+  "full_name": "AMA",
+  "email": "",
+  "phone": "",
+  "location": "",
+  "summary": "Experienced AI researcher, data engineer, and technology professional with a proven track record in developing and delivering production-grade solutions at scale. Extensive experience in machine learning, data engineering, DevOps, and project management across research, financial services, and technology sectors. Strong background in designing and implementing data pipelines, AI/ML systems, and cloud infrastructure solutions. Demonstrated expertise in bridging the gap between business requiremen",
+  "github": "",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [
+    "Signal Processing",
+    "Pattern Recognition",
+    "Deep Learning Neural Networks",
+    "Model Development",
+    "Computer Vision  Image Processing",
+    "Object",
+    "Detection",
+    "Data Engineering ETL",
+    "Data Pipelines",
+    "Work-",
+    "flow Orchestration",
+    "Data Management",
+    "Data Modeling",
+    "Data Governance",
+    "Distributed Computing",
+    "Parallel Processing",
+    "Streaming",
+    "Batch Processing",
+    "Cloud Platforms AWS",
+    "Azure",
+    "GCP\tDevOps CI/CD",
+    "Infrastructure as Code",
+    "Containerization  Docker",
+    "Kubernetes\tLanguages  Python",
+    "shell",
+    "SQL",
+    "Mon-",
+    "goDB",
+    "Bash",
+    "Project Management",
+    "Agile",
+    "Scrum",
+    "Kanban\tLeadership Team Management",
+    "Stake-",
+    "holder Engagement",
+    "Data Science  Statistical\tAnalysis",
+    "ML",
+    "Pipelines",
+    "Software Engineering",
+    "Best Practices",
+    "Code Quality"
+  ],
+  "certificates": [
+    {
+      "name": "Google Professional Data Engineer (since 2021) Microsoft Technology Associate",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "Description: Leading research in signal processing and machine learning, developing novel AI algorithms for pattern recognition and material detection. Impact: Contributing to advancement of AI technologies with practical applications. Technologies: Python, TensorFlow, PyTorch, Cloud ML Services",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Description: Designed and implemented scalable cloud infrastructure to support AI/ML model training and deployment pipelines. Impact: Enabled faster model deployment and reduced infrastructure costs by 25%. Technologies: AWS, Azure, Kubernetes, Docker, Terraform",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Description: Developed automated CI/CD pipelines for multiple client projects, streamlining deployment processes. Impact: Reduced deployment time by 60% and improved release frequency. Technologies: Jenkins, GitLab CI, Azure DevOps, Docker, Kubernetes",
+      "link": "",
+      "description": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "2023 – 2025 PhD in Engineering, The University of Edinburgh, School of Engineering, Scotland"
+    },
+    {
+      "degree": "Thesis Material detection with SPADs Advisor Dr Istvan Gyongy (Principal)"
+    },
+    {
+      "degree": "Focus  Signal Processing, Machine Learning, and AI"
+    },
+    {
+      "degree": "Research Advanced pattern recognition and machine learning algorithms for real-worl plications, with focus on material detection using Single-Photon Avalanche Di (SPADs)"
+    },
+    {
+      "degree": "2019 – 2020  MPhil in Cancer Science, The University of Manchester, School of Medical Sciences, England",
+      "institution": "Specialization  Cancer Science, Medical Research"
+    },
+    {
+      "degree": "2015 – 2017 MSc in Information and Communication Technology, GIMPA School of Technology, Ghana"
+    },
+    {
+      "degree": "Specialization  Software Engineering, Data Science, Information Systems"
+    },
+    {
+      "degree": "Achievement  Best Graduating Student, Overall Best Student of 2017 Graduating Batch"
+    },
+    {
+      "degree": "Big Data for better breast cancer treatment. MPhil Thesis, University of Manchester, 2019–2020",
+      "institution": "AI Research",
+      "end_year": "CI/CD Pipeline Optimization"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "2023 – Present R & D in Signal Processing, Machine Learning & Computer Vision",
+      "role": "Developed the ParticleWave Detection (PAWD) framework using machine learning, formalising the dual wave-particle nature of electromagnetic energy in optical sensing systems for advanced computer vision applications",
+      "description": "Created novel machine learning algorithms for flat homogeneous material detection using single-pixel direct time-of-flight (dToF) histograms, combining signal processing with deep learning techniques Developed hybrid spatiotemporal object detection system using computer vision and machine learning, fusing SPAD transients with active pixel sensor (APS) imagery for enhanced material classification Implemented liquid purity assessment systems using time-resolved SPAD transients and machine learning models for non-invasive detection and quality control Built custom benchmarks and evaluation frameworks for material detection systems, incorporating computer vision metrics and ML model performance analysis Developed Flask web applications with integrated machine learning inference engines for rapid evaluation and real-time computer vision processing Created custom data formats and preprocessing pipelines for efficient storage and processing of co-registered spatial and structural features for ML model training Applied deep learning and computer vision techniques to process and analyze time-of-flight data, achieving state-of-the-art performance in material classification tasks Collaborating with industry partners and academic teams to identify AI opportunities and translate research into practical machine learning solutions Managing research projects from conception to delivery, including timeline management, resource allocation, and stakeholder communication for ML/AI initiatives Developing and deploying machine learning models using cloud-based platforms (AWS, Azure, GCP), ensuring scalability and reliability for production computer vision systems Working with Python, TensorFlow, PyTorch, OpenCV, and cloud ML services to build and deploy end-to-end AI/ML solutions January 2020 – December 2021 DevOps Engineer, KPMG, London, UK Designed and implemented CI/CD pipelines for multiple client projects, reducing deployment time by 60% and improving release frequency Managed cloud infrastructure on AWS and Azure for financial services clients, ensuring high availability, scalability, and cost optimization Automated infrastructure provisioning using Terraform and Ansible, enabling infrastructure as code practices across projects Implemented containerization strategies using Docker and Kubernetes, improving application portability and scalability Collaborated with development and data science teams to streamline AI/ML model deployment processes and establish MLOps practices Monitored and optimized system performance using Prometheus, Grafana, and CloudWatch, reducing infrastructure costs by 25% Worked with financial services clients, gaining deep understanding of industry-specific challenges and regulatory requirements Established DevOps best practices, created technical documentation, and mentored junior engineers Implemented security best practices including secrets management, network security, and compliance monitoring for regulated industries Supported AI/ML initiatives by building scalable infrastructure for model training and deployment pipelines Key Achievements: Reduced deployment time by 60% through automation and CI/CD pipeline optimization Achieved 25% cost reduction in cloud infrastructure through monitoring and optimization Improved system reliability with 99.9% uptime across critical client services Successfully supported multiple AI/ML projects for financial services clients"
+    },
+    {
+      "start_date": "2017",
+      "end_date": "2018",
+      "company": "Managed complex IT projects from inception to completion, ensuring alignment with business objectives and stakeholder expectations",
+      "role": "Led cross-functional teams including developers, data scientists, engineers, and business analysts to deliver technology solutions",
+      "description": "Applied agile methodologies (Scrum, Kanban) to improve project delivery timelines and team productivity Managed project budgets, timelines, and scope, consistently delivering projects on time and within budget Facilitated communication between technical and non-technical stakeholders, translating business requirements into technical specifications Identified and mitigated project risks, ensuring smooth project execution and minimal disruptions Established project management best practices and documentation standards Collaborated with clients to understand business needs and develop technology-enabled solutions"
+    },
+    {
+      "start_date": "2012",
+      "end_date": "2016",
+      "company": "Designed, implemented, and maintained network infrastructure, ensuring optimal performance and reliability",
+      "role": "Performed network troubleshooting and diagnostics, resolving complex Layer 2 and Layer 3 routing issues for Cisco and other manufacturers",
+      "description": "Implemented and managed network security policies, including firewall configuration and security best practices Configured and optimized network protocols including OSPF, BGP, and quality of service (QoS) solutions Conducted network analytics and performance monitoring to identify and resolve bottlenecks Adapted quickly to new systems and technologies, demonstrating strong systems engineering capabilities Collaborated with cross-functional teams to ensure seamless network operations and system integration 2011  Internship in Layer 3 and Layer 4 Routing, GDS Africa, Accra, Ghana Completed internship focused on Layer 3 and Layer 4 routing technologies Trained to configure managed switches and routers for enterprise network environments Designed local area networks (LANs) and wide area networks (WANs) for various client requirements Gained extensive hands-on experience with CISCO and Juniper networking technologies Implemented routing protocols and network configurations for optimal performance and reliability June 2010 – December 2010 Internship in Image Processing, Cologne University of Applied Sciences, Faculty of Electrical and Electronic Engineering, Cologne, Germany Completed internship in image processing under supervision of Professor Christian Blendl and Holger Buhr Developed image processing libraries using Java for various computer vision applications Implemented algorithms and software solutions for image analysis and processing tasks Gained hands-on experience in software development and image processing techniques"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Fluent"
+    },
+    {
+      "language": "French",
+      "proficiency": "Basic"
+    }
+  ],
+  "years_of_experience": null,
+  "detected_source_language": "en"
+}

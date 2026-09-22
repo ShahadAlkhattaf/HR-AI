@@ -1,0 +1,130 @@
+{
+  "full_name": "ABHI JHA",
+  "email": "",
+  "phone": "",
+  "location": "",
+  "summary": "Results-driven AI Solution Engineer and Technology Leader with 8+ years of progressive experience designing and deploying enterprise-scale AI systems across healthcare, legal-tech, fashion-tech, cybersecurity, and SaaS industries. Proven track record of founding and scaling AI functions from inception, architecting production-grade Large Language Model (LLM) pipelines, and delivering measurable commercial impact at scale. Deep specialist expertise in Retrieval-Augmented Generation (RAG), multi-a",
+  "github": "",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [
+    "AI & Large Language Models: GPT-4",
+    "Azure OpenAI",
+    "Meta Llama",
+    "Retrieval-Augmented Generation (RAG)",
+    "LangChain",
+    "LangGraph",
+    "FAISS",
+    "Semantic Embeddings",
+    "Multi-Agent AI Systems",
+    "LLM Evaluation (LLM-as-a-Judge)",
+    "JSON Schema Output Enforcement",
+    "Prompt Engineering",
+    "Hallucination Detection",
+    "Machine Learning: PyTorch",
+    "TensorFlow",
+    "Keras",
+    "Computer Vision",
+    "NLP (NER",
+    "Sentiment Analysis",
+    "Text Classi cation)",
+    "Feature Engineering",
+    "Propensity Modelling",
+    "Model Tuning & Validation",
+    "A/B Testing",
+    "Predictive Analytics",
+    "Cloud & Infrastructure: Microsoft Azure",
+    "Azure Document Intelligence",
+    "Azure Text Analytics",
+    "Azure Pipelines",
+    "Docker",
+    "CI/CD",
+    "MLOps",
+    "GDPR-Compliant Deployment",
+    "Cloud Architecture Design",
+    "Backend & Development: Python",
+    "Django",
+    "Flask",
+    "REST API Design",
+    "Microservices Architecture",
+    "MongoDB",
+    "Odoo CRM",
+    "Flutter",
+    "C++"
+  ],
+  "certificates": [
+    {
+      "name": "Microsoft Azure: DP-900 Azure Data Fundamentals | AI-900 Azure AI Fundamentals | Technical Associates for Security Fundamentals",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Machine Learning: Udacity ML with TensorFlow Nanodegree | Udacity Data Analyst Nanodegree | Udacity Data Scientist Nanodegree",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Security: CNSS Certi ed Network Security Specialist International CyberSecurity Institute Google: Fundamentals of Digital Marketing | Google Ads Display Certi cation",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "AWARDS & RECOGNITION",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Best Employee of the Year MedBrief UK (2025) | Rookie of the Year Intechhub (2022) | Most Innovative Employee  Intechhub (2021)  | Runner-Up  Smart India Hackathon  | Winner  Multiple ACM Technical Competitions",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "LEADERSHIP & VOLUNTEERING",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Technical Head, DYPIEMR Student Council   Led technical events and cross-team project planning.",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Vice Chair, Association for Computing Machinery (ACM)  Mentored students; delivered coding workshops.",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Joint Secretary, COMPSA   Organised technical competitions and academic-industry networking events.",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    }
+  ],
+  "projects": [],
+  "education": [
+    {
+      "degree": "Master of Science  Data Science and Analytics\t2022  2023"
+    },
+    {
+      "degree": "University of Leeds | Leeds, United Kingdom  Modules: Advanced Machine Learning, Statistical Modelling, Data",
+      "institution": "Mining, Big Data Systems, AI Ethics and Governance."
+    },
+    {
+      "degree": "Bachelor of Engineering  Computer Science and Engineering\t2016  2020",
+      "institution": "Pune University | Pune, India Modules: Data Structures and Algorithms, Operating Systems, Distributed Sys-",
+      "end_year": "tems, Arti cial Intelligence, Software Engineering."
+    }
+  ],
+  "work_experience": [],
+  "languages": [],
+  "years_of_experience": null,
+  "detected_source_language": "en"
+}

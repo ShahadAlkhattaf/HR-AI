@@ -1,0 +1,185 @@
+{
+  "full_name": "Niva Egovan",
+  "email": "",
+  "phone": "",
+  "location": "Lambda, API",
+  "summary": "AI Engineer specialising in building, fine-tuning, and deploying LLM-driven and RAG-based solutions on AWS. Experienced with Lambda, API Gateway, ECR, S3 and Bedrock (exposure), and skilled in designing scalable, serverless inference pipelines using FastAPI and Docker. Strong in prompt engineering, semantic search and model optimisation (GPTQ/ONNX). Known for delivering reliable, cost-efficient AI systems through clear engineering practices and close collaboration with cross-functional teams.",
+  "github": "",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [
+    "GenAI & LLM Engineering: HuggingFace",
+    "LLaMA",
+    "Gemma",
+    "RAG",
+    "LoRA/QLoRA Fine-Tuning",
+    "Prompt Engineering",
+    "Agentic AI: LLM Agents",
+    "Tool Calling",
+    "LangChain",
+    "LangGraph",
+    "Hybrid Retrieval",
+    "Memory/State Management",
+    "Guardrails",
+    "Cloud & MLOps (AWS-Focused): AWS Lambda",
+    "API Gateway",
+    "ECR",
+    "S3",
+    "IAM",
+    "CloudWatch",
+    "Serverless Model Deployment",
+    "Docker",
+    "CI/CD (GitHub Actions)",
+    "Model Optimisation (GPTQ",
+    "ONNX Runtime exposure)",
+    "Monitoring & Logging",
+    "Backend Engineering: Python (Advanced)",
+    "TensorFlow",
+    "PyTorch",
+    "FastAPI",
+    "RESTful APIs",
+    "Git",
+    "Caching (Redis)",
+    "Secure API Integration",
+    "Data & Retrieval Pipelines: FAISS",
+    "Pinecone",
+    "Chroma",
+    "Regex",
+    "PdfPlumber",
+    "BeautifulSoup",
+    "ETL Pipelines",
+    "Web & UI Development: React",
+    "TypeScript",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Flask",
+    "Streamlit",
+    "Django"
+  ],
+  "certificates": [
+    {
+      "name": "AWS Certified Cloud Practitioner (CLF-C02) — Amazon Web Services AWS Machine Learning Specialty (MLS-C01) — Amazon Web Services Google Cloud Generative AI Certification — Google Cloud Skills Boost",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "LLM-Powered Metadata Enrichment & Discovery in the ELIXIR TeSS Portal – MSc Dissertation",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Designed and implemented a hybrid RAG pipeline using LangChain, Sentence-BERT and lexical search to automate metadata retrieval and contextualisation from unstructured biological datasets, enhancing resource discoverability.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Fine-tuned LLaMA-3 and Gemma for metadata summarisation and conversational query handling, improving metadata consistency by 40%+ and boosting user satisfaction compared to manual curation.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Optimised and deployed the system with GPTQ quantization, Docker and FastAPI, reducing inference latency by 35%",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "while maintaining high accuracy in resource-constrained environments.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Developed an ontology-aware tagging module using EDAM and custom classifiers to auto-assign topics, operations and data types, increasing metadata completeness across the TeSS ecosystem.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "CyberInsights AI – Google GenAI Exchange Hackathon 2024 (Top 5 Finalist / 38,000+ participants)",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Architected an AI-powered platform using NLP and Generative AI to automate analysis of unstructured cybersecurity audit reports, cutting average report processing time from 4 hours to under 2.5 hours.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Engineered a RAG-based Q&A system with real-time insight generation and interactive dashboards, automating extraction of 200+ key findings per report and reducing manual data entry.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Implemented automated risk scoring and prioritisation using lightweight ML models and rule-based validators, enabling security teams to review high-impact vulnerabilities 40% faster with improved triage accuracy.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Last Bite: Predicting Tomorrow’s Plate – GreatUniHack’24",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Developed a full-stack tool using Python, Flask and the OpenAI API to predict crop-extinction risks, designing data flows and endpoints for users to explore climate impacts through interactive insights.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Trained TensorFlow/Keras models on climate–agriculture datasets and integrated GPT-4 for ingredient extraction and explanation generation, applying prompt templates and feature engineering to improve prediction stability.",
+      "link": "",
+      "description": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "University of Manchester\tSept 2024 – Sept 2025"
+    },
+    {
+      "degree": "MSc Artificial Intelligence",
+      "start_year": "2020",
+      "institution": "BTech Artificial Intelligence and Data Science"
+    }
+  ],
+  "work_experience": [
+    {
+      "start_date": "Jan 2026",
+      "end_date": "Apr 2026",
+      "company": "Praeferre",
+      "role": "Built an end-to-end AI Privacy & Governance system with a FastAPI backend, integrating Microsoft Presidio, spaCy NER and HuggingFace models for PII detection, entity masking and safe LLM data routing across text and file inputs.",
+      "description": "Developed a RAG-based compliance analysis engine using LangChain, FAISS and Cohere LLM to assess policy documents against GDPR, DPDP and SOC2 frameworks, delivering accurate compliance scores with reduced prompt bias and improved “Under Review” logic. Engineered a Vendor Risk Assessment system with questionnaire-driven scoring, document upload and evidence collection, producing structured scorecards with overall, category-level and control-level evaluations for third-party risk management. Integrated a React/TypeScript enterprise portal with all compliance and privacy APIs, implemented Azure-based auth flows, and built a Privacy Emulator dashboard with PII visualisation, entity breakdown and end-to-end LLM response flow."
+    },
+    {
+      "start_date": "Jun 2025",
+      "end_date": "Nov 2025",
+      "company": "ELIXIR TeSS / mTeSS-X (University of Manchester eScience Lab)",
+      "role": "Designed and orchestrated LLM-driven agent workflows using LLaMA-3, Gemma, Sentence-BERT and",
+      "description": "LangChain/LangGraph, enabling iterative reasoning, self-correction and use for large-scale metadata enrichment. Built secure, low-latency retrieval and data integration pipelines with hybrid semantic search and ontology-guided ranking, increasing EDAM alignment by 35% and reducing manual curation workload by 50%. Implemented guardrails, grounding strategies and evaluation workflows (Recall@K, MRR, robustness checks) to minimise hallucinations and ensure outputs were auditable, explainable and compliant. Deployed containerised FastAPI inference services using Docker, AWS Lambda and API Gateway, implementing scalable serverless endpoints with performance logging, cold-start optimisation and secure IAM-based access control. Built automated deployment workflows with GitHub Actions CI/CD, integrating image builds, ECR pushes, rollout validation and regression checks to ensure reliable model releases across cloud environments."
+    },
+    {
+      "start_date": "Apr 2024",
+      "end_date": "Aug 2024",
+      "company": "Soft4Hire",
+      "role": "Developed an AWS-based RAG system using LLaMA-2, Sentence-BERT and FAISS, improving retrieval quality by",
+      "description": "18%. Added structured evaluation to tune relevance and built clear data flows for stable and repeatable inference. Built a serverless inference pipeline with Lambda, API Gateway and ECR, supporting heavy traffic while keeping responses consistent. Used lightweight containers, S3 triggers and monitoring to minimise latency during peak demand. Implemented hybrid retrieval and prompt orchestration with Hugging Face pipelines, reducing hallucinations and improving answer consistency. Added domain filters, prompt templates and test cases to make behaviour predictable and reliable. Optimised model serving through GPTQ quantisation, Redis caching and ONNX Runtime (exposure), lowering compute cost by ˜20%. Documented deployment steps, improved FastAPI endpoints and streamlined updates for the wider engineering team."
+    },
+    {
+      "start_date": "Nov 2023",
+      "end_date": "Feb 2024",
+      "company": "Evolve Innovation Lab",
+      "role": "Designed a Python-based resume extraction pipeline using BeautifulSoup, PdfPlumber and regex, turning unstructured resume data into structured datasets and improving parsing accuracy by 15%.",
+      "description": "Developed automated data-ingestion workflows with UIPath and Python scripts, cutting manual candidate processing by around 6 hours/week and adding checks, logs and validations for reliable high-load operation. Built lightweight classification and filtering logic to support early-stage candidate ranking, improving screening efficiency by 30% using clear rules, confidence scores and review flags to guide prioritisation. Integrated automated SMTP-based email pipelines to deliver standardised communication, boosting response rates by 25% and linking these workflows to the HR platform for better access, consistency and future AI expansion."
+    },
+    {
+      "start_date": "Mar 2023",
+      "end_date": "Aug 2023",
+      "company": "ExpertDen Solutions Technologies",
+      "role": "Developed and deployed MedXplore, a cloud-native medical application on Microsoft Azure using Power Apps and Azure SQL Database, serving 500+ healthcare providers and patients with improved accessibility and scalability.",
+      "description": "Engineered integration of RESTful APIs for real-time record management and scheduling modules, reducing average appointment booking time by 40% and enabling seamless interoperability across systems. Strengthened data governance and compliance by implementing Azure SSE and TDE on Azure SQL and configuring Azure Active Directory for identity management, safeguarding PHI for 1,000+ users. Automated secure document workflows using Azure SharePoint libraries with versioning and RBAC, reducing administrative workload by 30% and enabling compliant collaboration across teams."
+    }
+  ],
+  "languages": [],
+  "years_of_experience": null,
+  "detected_source_language": "en"
+}

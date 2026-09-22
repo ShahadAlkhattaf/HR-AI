@@ -1,0 +1,62 @@
+{
+  "full_name": "Kai Zhou",
+  "email": "",
+  "phone": "",
+  "location": "London, UK",
+  "summary": "",
+  "github": "",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [],
+  "certificates": [],
+  "projects": [],
+  "education": [
+    {
+      "institution": "London School of Economics and Political Science"
+    },
+    {
+      "degree": "PhD in Statistics",
+      "institution": "Papers:",
+      "end_year": "Supervisors: Prof. Milan Vojnovic and Dr Yining Chen",
+      "start_year": "2018"
+    },
+    {
+      "degree": "Research interests: Statistical machine learning, statistical inference, optimization methods, stochastic processes, and deep learning."
+    },
+    {
+      "degree": "MSc in Financial Statistics\tSep 2017 – Sep 2018",
+      "institution": "Results: Distinction"
+    },
+    {
+      "degree": "Awarded the top dissertation of the year for the topic “Convergence Rates of Iterative Parameter Estimation Methods for Ranking Models”"
+    },
+    {
+      "degree": "BSc in Actuarial Science\tSep 2014 – Sep 2017",
+      "institution": "Results: First Class Honors"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "London School of Economics and Political Science",
+      "role": "LSE Fellow",
+      "description": "Undergraduate Lecturing: ST313 (Ethics for Data Science) London, UK"
+    },
+    {
+      "start_date": "Aug 2023",
+      "end_date": "Present",
+      "company": "Undergraduate Seminar Teaching: ST302 (Stochastic Processes), ST303 (Stochastic Simulations), ST301(Actuarial Mathematics (Life), ST306 (Actuarial Mathematics (General), ST313 (Ethics for Data Science)",
+      "role": "Master Seminar Teaching: ST409 (Stochastic Processes), ST456 (Deep Learning)",
+      "description": "London School of Economics and Political Science\tLondon, UK"
+    },
+    {
+      "start_date": "Sep 2018",
+      "end_date": "Aug 2023",
+      "company": "Undergraduate: MA100 (Mathematical Methods), ST102 (Elementary Statistical Theory), ST107 (Quantitative Methods), ST202 (Probability, Distribution Theory and Inference) and ST226 (Actuarial Investigations: Financial), ST207 (Databases)",
+      "role": "Masters: ST446 (Distributed Computing for Big Data)",
+      "description": "AWARDS Economic and Social Research Council (ESRC 1+3) Studentship\tLondon, UK Awarded the ESRC 1+3 studentship to pursue both the Masters and PhD studies at the LSE Learner Winton Price for Best Dissertation in MSc in Statistics\tLondon, UK Awarded the top dissertation of the year at the LSE Class Teacher Award\tLondon, UK Awarded for teaching contributions in the Department of Statistics at LSE for the academic years 2022/23, 2023/24, and 2024/25, and for teaching contributions to the LSE Summer School in 2024. ADDITIONAL INFORMATION Languages: Mandarin (Native), English (Proficient) Technical Skills: Python, R, SQL Interests: Dog training, Cooking, Teaching, Volunteering, Gymming"
+    }
+  ],
+  "languages": [],
+  "years_of_experience": null,
+  "detected_source_language": "en"
+}

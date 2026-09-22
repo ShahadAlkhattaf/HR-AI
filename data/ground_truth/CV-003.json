@@ -1,0 +1,160 @@
+{
+  "full_name": "Ana Mana",
+  "email": "",
+  "phone": "",
+  "location": "",
+  "summary": "AI Engineer with +2 years of hands-on experience in designing, building, and deploying production-grade AI systems. Specialized in Retrieval-Augmented Generation (RAG), Agentic AI, Automating workflows, large-scale inference architectures, and applied AI solutions for government and enterprise environments. Proven ability to take AI solutions from concept to production in government and enterprise environments, with focus on accuracy, traceability, reliability, and high-concurrency performance.",
+  "github": "",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [
+    "Agentic frameworks (LangChain",
+    "LangGraph",
+    "etc)\t\tPython",
+    "C++",
+    "Java",
+    "Computer vision\t\tNLP",
+    "Azure",
+    "GCP)"
+  ],
+  "certificates": [
+    {
+      "name": "Certified Associate – Generative AI LLMs - NVIDIA",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Certified Associate – Generative AI Multimodal - NVIDIA",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Certified AI Practitioner CAIP",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "TensorFlow Developer - Google",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Certified Ethical Hacker (CEH) EC-Council",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "CCNA Cisco",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Full stack robotics engineer",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Stanford, CS224N – NLP with Deep Learning Stanford",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Certified Python Developer (PCAP) Python Certified Associate",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "Inquiries Agent",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Designed and Developed an agentic workflow that processes inquiries, retrieves relevant legal context, generates grounded decisions based on policies, and writes structured responses for regulatory workflows.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Controllable-RAG Agent",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Adopted cutting-edge architecture called controllable Retrieval-Augmented Generation (RAG) from scientific paper to our system for Saudi legal and regulatory content to improve retrieval precision, answer traceability, and response reliability.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Improved retrieval precision from 64 to 97 compaired to regular RAG.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Reduced hallucination and unsupported answer rate by 40%.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "RAAS (RAG as a service)",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Built a multi-tenant RAG platform designed to serve multiple clients efficiently with scalable document ingestion, retrieval, and high-concurrency inference.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Traffic Violation System",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Built a computer vision-based system for detecting traffic violations using image analysis and cloud-based infrastructure.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Waste Violation Detection System",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Developed an AI-based computer vision solution to detect illegal waste disposal in public areas",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Selected among 20 winning teams out of 150 teams in GAIA Accelerator (DAI) hackathon.",
+      "link": "",
+      "description": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "King Khalid University - Bachelor of Computer Engineering",
+      "start_year": "2011",
+      "gpa": "4.65"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "AI ENGINEER | Feb 2024 — Current",
+      "role": "DAS",
+      "description": "Worked on the development and optimization of SDAIA ALLAM Model. Built end-to-end RAG as a service platform for large legal corpora with more than +1000 document. Increased retrieval precision from 64% to 97%. Planned and developed agentic orchestration flows with +6 sub-agents to automate workflows across government entities and provide structured decision-support. Implemented and optimized inference services using NVIDIA Triton Inference Server, FastAPI, and containerized deployments (Docker, Kubernetes) Designed and implemented evaluation pipelines for Agentic workflows to automate the evaluation process. Reduced average response latency by 20% through inference and serving optimization techniques. Optimized system concurrency from 10 concurrent users to 500 users AI ENGINEER | Jan 2024 — Feb 2024 QSS Data cleansing and preparation Model training and fine-tuning Model deployment and performance optimization Worked on NLP and Computer Vision use cases for healthcare AI & IOT INSTRUCTOR | Dec 2023 — Feb 2024 Jeenos Academy Delivered AI, IoT, and robotics training for 2-months bootcamp with +20 students Mentored students on practical AI implementation, project development, and technical problem solving."
+    }
+  ],
+  "languages": [],
+  "years_of_experience": null,
+  "detected_source_language": "en"
+}

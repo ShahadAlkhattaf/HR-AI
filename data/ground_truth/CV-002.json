@@ -1,0 +1,181 @@
+{
+  "full_name": "Aya haman",
+  "email": "",
+  "phone": "",
+  "location": "Scarborough, ON",
+  "summary": "Results-oriented AI & ML Engineer with 4+ years of experience in building and deploying intelligent, data-driven systems. Skilled in machine learning, deep learning, NLP, and generative AI, with hands-on expertise in LLMs for automation and data reasoning. Proficient in Python, SQL, TensorFlow, PyTorch, and LangChain, with a strong background in LLM evaluation, fine-tuning, and API integration. Experienced in developing scalable AI pipelines and visualizing model outcomes in cloud environments.",
+  "github": "",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [
+    "Programming Languages: Python",
+    "SQL",
+    "Java",
+    "C++",
+    "JavaScript",
+    "Bash",
+    "MATLAB.",
+    "Data Engineering & Databases: SQL",
+    "NoSQL",
+    "MySQL",
+    "PostgreSQL",
+    "MongoDB",
+    "Redis",
+    "Data Pipelines",
+    "ETL Design",
+    "Apache Airflow",
+    "PySpark",
+    "BigQuery",
+    "Data Warehousing.",
+    "Machine Learning & AI Frameworks: TensorFlow",
+    "PyTorch",
+    "Keras",
+    "Scikit-learn",
+    "XGBoost",
+    "LightGBM",
+    "LangChain",
+    "LlamaIndex",
+    "Hugging Face Transformers",
+    "LLM APIs.",
+    "EDA",
+    "Statistical Modeling",
+    "Predictive Analytics",
+    "A/B Testing",
+    "Data Visualization (Matplotlib",
+    "Seaborn",
+    "Plotly",
+    "Power BI).",
+    "NLP & LLMs: Prompt Engineering",
+    "Text Classification",
+    "NER",
+    "Sentiment Analysis",
+    "RAG",
+    "Tokenization",
+    "Fine-tuning",
+    "Embedding Models",
+    "Multi-turn Conversational Systems.",
+    "Computer Vision & Deep Learning: OpenCV",
+    "CNNs",
+    "RNNs",
+    "Transformers",
+    "Image Segmentation",
+    "Object Detection",
+    "Transfer Learning",
+    "Model Optimization",
+    "Data Augmentation.",
+    "MLOps & Deployment: Docker",
+    "Kubernetes",
+    "MLflow",
+    "DVC",
+    "Weights & Biases",
+    "FastAPI",
+    "Flask",
+    "Streamlit",
+    "Model Serving",
+    "API Integration",
+    "CI/CD (GitHub Actions",
+    "Jenkins)",
+    "Automated Testing",
+    "Model Versioning",
+    "Experiment Tracking.",
+    "Cloud Platforms & Tools: AWS (SageMaker",
+    "Lambda",
+    "S3",
+    "EC2)",
+    "Google Cloud (Vertex AI",
+    "BigQuery)",
+    "Azure ML",
+    "Databricks",
+    "API Gateway",
+    "Serverless Deployment.",
+    "Software Development & Collaboration: Git",
+    "GitHub",
+    "GitLab",
+    "Agile/Scrum",
+    "Jira",
+    "Slack",
+    "SDLC",
+    "Code Review",
+    "Debugging",
+    "Documentation",
+    "Unit & Integration Testing."
+  ],
+  "certificates": [
+    {
+      "name": "Neural Networks and Deep Learning\t[Coursera]",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Improving Deep Neural Networks\t[Coursera]",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Structuring Machine Learning projects [Coursera]",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Publications",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Evaluating SQL Understanding in Large Language Models",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "An IOT Based Smart Drain Monitoring System with Alert Messages",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Design and Implementation of a safety device for emergency situation using Arduino and GSM Module",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "AI Resume Tailor (LangChain + RAG): Built an AI-powered resume tailoring system that analyzes a job posting and compares it with the user’s resume using RAG and LangChain. Extracts key skills from the JD, identifies gaps, and rewrites resume bullet points for ATS optimization. Generates match scores and provides targeted improvements using prompt-engineering workflows.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Intelligent Document Search Assistant (LangChain + RAG): Developed a RAG-based system using LangChain to enable semantic search and QA over PDFs. Implemented document chunking, embeddings, and vector search (FAISS/Chroma), and integrated an LLM to generate context-aware answers. Built a simple UI for upload and querying, and deployed the service for scalable use.",
+      "link": "",
+      "description": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Science: Computer Science, GPA-3.93\t04/2025",
+      "institution": "University of Western Ontario - London, ON"
+    },
+    {
+      "degree": "Bachelor of Science: Computer Science And Engineering, GPA-3.92\t10/2020"
+    },
+    {
+      "degree": "BRAC University - Dhaka, Bangladesh"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "Graduate Research and Teaching Assistant, 09/2023 - 04/2025",
+      "role": "University of Western Ontario – London, ON, Canada",
+      "description": "Conducted advanced research on LLMs (GPT3.5, GPT4, LLaMA, Gemini, MistralAI) to evaluate their capabilities in data management, query understanding, and automation tasks. Designed and implemented multimodal semi-synthetic datasets, creating structured pairs of original and error-injected SQL queries to benchmark LLM efficiency in syntax error detection, query correction, and optimization. Developed ML/DL pipelines in Python (Jupyter Notebook) to generate baseline metrics and integrated LLM APIs to automate evaluation workflows and enable cross-model performance comparison. Built data visualizations to present performance trends, accuracy metrics, and comparative results across models, while evaluate the adaptability of LLMs in structured environments. Assisted in teaching Java and Python programming courses, conducted student consultations, while guiding students through labs, assignments, and projects, and grading coursework and exams with fairness and accuracy. Lecturer, Computer Science, 02/2021 - 08/2023 Primeasia University – Dhaka, Bangladesh Supervised graduate-level projects involving advanced deep learning architectures (CNNs, RNNs, LSTMs, Transformers, Attention models) using TensorFlow and Keras. Guided students in computer vision tasks: image classification, object detection (YOLOv8, Faster R-CNN), semantic segmentation, and video sequence analysis. Mentored on Natural Language Processing (NLP) techniques, including text classification, sentiment analysis, machine translation, and fine-tuning Transformer-based models (BERT, GPT, LLaMA). Trained students in model optimization techniques (hyperparameter tuning, ensemble methods, transfer learning, and multimodal learning) and assisted in designing end-to-end ML pipelines: data preprocessing, feature engineering, training, evaluation, and deployment for reproducible research. Software Engineer AI/ML, 01/2019 - 10/2020 Therap BD (LTD) – Dhaka, Bangladesh Built and optimized data pipelines for preprocessing, transformation, and storage, ensuring efficient handling of large datasets for ML/AI experiments. Developed modular, reusable, and production-ready code in Python, Java, and SQL, following software engineering best practices (OOP, testing, version control). Utilized Git and cloud-based environments to maintain code quality, collaboration, and deployment."
+    }
+  ],
+  "languages": [],
+  "years_of_experience": null,
+  "detected_source_language": "en"
+}

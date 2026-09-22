@@ -1,0 +1,124 @@
+{
+  "full_name": "IAN SAUD",
+  "email": "",
+  "phone": "",
+  "location": "Dart, PHP",
+  "summary": "AI Engineer and Software Developer with 6+ years of experience designing scalable cloud solutions, building production RAG-based AI systems, and leading cross-functional engineering teams. Delivered platforms serving 300K+ monthly users. World Robot Olympiad Finalist and 3-time national champion. Currently pursuing an MSc in Artificial Intelligence.",
+  "github": "",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [
+    "Languages: Python",
+    "TypeScript",
+    "JavaScript",
+    "Java",
+    "C++",
+    "Dart",
+    "PHP",
+    "SQL",
+    "AI / ML: PyTorch",
+    "TensorFlow",
+    "Scikit-Learn",
+    "LLMs",
+    "Fine-Tuning",
+    "RAG",
+    "NLP",
+    "Hugging Face",
+    "LangChain",
+    "Prompt Engineering",
+    "PySpark",
+    "Frameworks: Node.js",
+    "NestJS",
+    "Flask",
+    "Laravel",
+    "Flutter",
+    "React",
+    "Three.js",
+    "DevOps & Cloud: Docker",
+    "CI/CD",
+    "AWS",
+    "Azure",
+    "GCP",
+    "Firebase",
+    "Linux",
+    "GitHub Actions",
+    "Data & Tools: PostgreSQL",
+    "MongoDB",
+    "REST APIs",
+    "Microservices",
+    "System Design",
+    "Agile/Scrum",
+    "Jira"
+  ],
+  "certificates": [],
+  "projects": [
+    {
+      "name": "WAJ — All-in-one salon management platform with AI-powered booking, staff scheduling, and payment processing. Available on web, iOS, and Android.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "BBSF Mobile+ — Mobile banking app for Banque Bemo Saudi Fransi. 100K+ downloads, 4.0★ rating with biometric auth and real-time transactions.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Road Ride — Cycling social platform with 30K+ active users featuring GPS tracking, group rides, leaderboards, and marketplace. Zero-downtime for 3+ years.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "ABO Store — Multi-platform e-commerce app serving 30K+ active users with inventory management, personalised recommendations, and seamless checkout.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Rockety — Interactive 3D rocket physics simulator built with Three.js, featuring adjustable thrust/angle controls and real-time aerodynamic calculations.",
+      "link": "",
+      "description": ""
+    }
+  ],
+  "education": [
+    {
+      "degree": "MSc Artificial Intelligence — Manchester Metropolitan University\tSep 2025 – Sep 2026"
+    },
+    {
+      "degree": "BSc Information Technology (Software Engineering) — Damascus University\tSep 2018 – Sep 2024",
+      "institution": "AWARDS",
+      "start_year": "2017"
+    }
+  ],
+  "work_experience": [
+    {
+      "start_date": "Jan 2024",
+      "end_date": "Sep 2025",
+      "company": "Architected and deployed a conversational AI assistant using GPT with RAG, handling booking inquiries and reducing support workload by automating common customer interactions.",
+      "role": "Designed scalable system architecture for AI-powered website builder, enabling users to launch full websites with minimal input across 100K+ monthly active users.",
+      "description": "Led full-stack development of intelligent customer booking platform, processing 100,000+ monthly transactions with real-time availability and automated confirmations. Migrated infrastructure to cloud, reducing hosting costs by 55% and optimising app performance by 60% through caching and architecture improvements."
+    },
+    {
+      "start_date": "Jul 2023",
+      "end_date": "Jan 2024",
+      "company": "Led a team of 7 developers, implementing Agile practices and performance tracking that increased sprint velocity and delivery predictability.",
+      "role": "Directed integration of 15+ banking features across cross-functional teams, leveraging user testing to drive measurable improvements in customer satisfaction.",
+      "description": "Managed full development lifecycle for mobile banking application, maintaining 99.9% uptime for critical financial services."
+    },
+    {
+      "start_date": "Mar 2022",
+      "end_date": "Sep 2023",
+      "company": "Developed and launched 5 mobile applications (iOS & Android), managing full lifecycle from requirements through App Store and Play Store releases.",
+      "role": "Established CI/CD pipelines via GitHub Actions, reducing release cycles from weeks to days and improving deployment reliability.",
+      "description": "Conducted code reviews and mentored junior developers, raising team code quality standards and accelerating onboarding for new hires."
+    },
+    {
+      "start_date": "May 2021",
+      "end_date": "Mar 2022",
+      "company": "Coached and mentored students in competitive robotics, guiding a team to 1st place nationally in the World Robot Olympiad.",
+      "role": "Designed hands-on robotics curriculum covering embedded systems, sensor integration, and algorithmic problem-solving.",
+      "description": "Organised workshops and practice sessions, developing students’ teamwork, technical communication, and rapid prototyping skills."
+    }
+  ],
+  "languages": [],
+  "years_of_experience": null,
+  "detected_source_language": "en"
+}

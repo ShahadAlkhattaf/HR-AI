@@ -1,0 +1,206 @@
+{
+  "full_name": "MohammedH, Ph.D.",
+  "email": "",
+  "phone": "",
+  "location": "",
+  "summary": "AI Consultant and Machine Learning Engineer holding a Ph.D. in Artificial Intelligence and Computer Vision with 7+ years of experience designing, deploying, and optimizing AI-driven solutions. Specialized in agentic AI systems, multi-agent orchestration, and autonomous intelligent agents using cutting-edge frameworks. Expert in implementing generative AI, RAG architectures, and LLM-powered automation for business transformation. Proven track record of delivering scalable AI solutions across heal",
+  "github": "",
+  "linkedin": "",
+  "portfolio": "",
+  "skills": [
+    "May 2025 - May 2026",
+    "Montreal",
+    "QC",
+    "Part-time (~21 hours/week)",
+    "Pattern Recognition",
+    "IJDAR)",
+    "Cloud Infrastructure Engineer",
+    "SITA",
+    "March 2025 - Present",
+    "Full-time",
+    "AWS",
+    "Deploy and optimize Kubernetes clusters (AKS",
+    "EKS) for ML workload orchestration"
+  ],
+  "certificates": [
+    {
+      "name": "AI Agent Engineering: From ReAct, Agentic RAG to Multi-Agent Orchestration (Maven, 2025) - Hands-on program covering ReAct frameworks, Agentic RAG, multi-agent collaboration using LangChain, LangGraph, and ADK Orchestrate",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Natural Language Processing on Google Cloud (Google Cloud, 2025)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Inspect Rich Documents with Gemini Multimodality (Google Cloud, 2025)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Prompt Design in Vertex AI (Google Cloud, 2025)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Mastering Generative AI and LLMs (8-Week Intensive Program, 2024)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Deep Learning Specialization (Andrew Ng, Coursera) - CNNs, RNNs, Transformers",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Machine Learning Specialization (Andrew Ng, Coursera)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "MLOps Specialization (DeepLearning.AI) - CI/CD, Model Monitoring, Production ML",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Full Stack Deep Learning (UC Berkeley, 2022)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Advanced AI/ML Certification (IIIT Hyderabad ML Lab)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    },
+    {
+      "name": "Artificial Intelligence Engineer (Simplilearn x IBM)",
+      "issuer": "",
+      "issue_date": "",
+      "expiry_date": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "Agentic AI & Multi-Agent Systems",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Multi-Agent Orchestration Platform: Designed autonomous agent ecosystem using LangGraph for complex workflow automation. Implemented ReAct patterns for iterative reasoning and tool usage. Achieved high marginal reduction in manual process time through intelligent agent collaboration.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Agentic RAG System: Built enterprise knowledge management solution with autonomous agents for document retrieval, analysis, and synthesis. Integrated with LangChain for dynamic tool selection and context-aware responses. Deployed privacy-aware architecture handling sensitive corporate data.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Intelligent Process Automation: Developed multi-agent system for end-to-end business process automation using CrewAI. Implemented specialized agents for data extraction, validation, and decision-making. Reduced processing time while improving accuracy.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "AI Workflow Orchestration: Created scalable orchestration framework using ADK Orchestrate for coordinating multiple AI models. Implemented explainable decision paths and real-time monitoring. Successfully deployed in production serving 10K+ daily requests.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Generative AI & LLM Solutions",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Enterprise RAG Implementation: Designed and deployed production RAG system using advanced embedding strategies and hybrid search. Achieved high accuracy in document retrieval with sub-second response times.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Custom LLM Fine-tuning: Fine-tuned domain-specific language models for diverse domains including healthcare and financial services. Implemented LoRA and QLoRA techniques for efficient adaptation. Gained improvement in domain-specific task performance.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Conversational AI Platform: Built intelligent chatbot system using GPT family models with custom prompt engineering and context management. Integrated with business systems via FastAPI microservices.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Multimodal AI & Computer Vision",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Document Intelligence System: Developed end-to-end document analysis pipeline combining OCR, layout analysis, and semantic extraction. Published research in IEEE TPAMI on hierarchical attention networks. Achieved state-of-the-art results on benchmark datasets.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "Vision-Language Models: Implemented multimodal systems integrating text and image processing for content understanding. Utilized transformer architectures (CLIP, BLIP) for cross-modal retrieval.",
+      "link": "",
+      "description": ""
+    },
+    {
+      "name": "AI-Powered Video Analytics: Created real-time video analysis system combining object detection, tracking, and activity recognition. Optimized for edge deployment using TensorRT and ONNX. Processing 30 FPS on standard hardware.",
+      "link": "",
+      "description": ""
+    }
+  ],
+  "education": [
+    {
+      "institution": "Professional Certifications"
+    },
+    {
+      "degree": "AI Agent Engineering: From ReAct, Agentic RAG to Multi-Agent Orchestration (Maven, 2025) - Hands-on program covering ReAct frameworks, Agentic RAG, multi-agent collaboration using LangChain, LangGraph, and ADK Orchestrate",
+      "start_year": "2025",
+      "end_year": "2025"
+    },
+    {
+      "degree": "Mastering Generative AI and LLMs (8-Week Intensive Program, 2024)",
+      "institution": "Deep Learning Specialization (Andrew Ng, Coursera) - CNNs, RNNs, Transformers"
+    },
+    {
+      "degree": "Machine Learning Specialization (Andrew Ng, Coursera)",
+      "institution": "MLOps Specialization (DeepLearning.AI) - CI/CD, Model Monitoring, Production ML",
+      "start_year": "2022"
+    },
+    {
+      "degree": "Advanced AI/ML Certification (IIIT Hyderabad ML Lab)",
+      "institution": "Artificial Intelligence Engineer (Simplilearn x IBM)"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "Ph.D. Researcher & AI Engineer | Synchromedia Lab, ÉTS",
+      "role": "September 2018 - November 2024 | Montreal, QC",
+      "description": "Developed advanced AI frameworks for multimodal document analysis, integrating computer vision and NLP Published 7+ papers in top-tier journals including IEEE TPAMI, Pattern Recognition, and IJDAR Designed transformer-based architectures achieving state-of-the-art performance on benchmark datasets Managed distributed computing infrastructure for large-scale model training (Compute Canada) Education Ph.D. in Engineering (Artificial Intelligence & Computer Vision) Excellence in Thesis Award (2024) Dissertation: Advanced Transformer Architectures for Multimodal Document Analysis M.Sc. in Computer Science (NLP & Computational Linguistics)"
+    }
+  ],
+  "languages": [
+    {
+      "language": "Arabic",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "Professional"
+    },
+    {
+      "language": "French",
+      "proficiency": ""
+    }
+  ],
+  "years_of_experience": null,
+  "detected_source_language": "en"
+}
