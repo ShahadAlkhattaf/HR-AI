@@ -26,10 +26,10 @@ OCR fallback         (src/parsing/ocr.py)
 Clean / normalize    (src/utils/language.py)
   │                   language detection, Arabic normalization, text cleaning
   ↓
-[ Model A | Model B | Model C ]   (src/models/*)
+[ Model A | Model B | Model C ]   (src/extraction/* + src/llm/*)
   │                                common ResumeExtractionModel interface
   ↓
-Structured CandidateProfile JSON  (src/models/schema.py)
+Structured CandidateProfile JSON  (src/extraction/schema.py)
   ↓
 Evaluation vs ground truth         (src/evaluation/*)
   ↓
@@ -44,11 +44,11 @@ FastAPI baseline                   (src/api/main.py)
 
 The evaluator (`src/evaluation/evaluator.py`) and API layer (`src/api/main.py`) wire the stages together.
 
-Existing registered models can therefore be selected through `configs/models.yaml` without changing the parsing or evaluation pipeline. New model types can be added through the common `ResumeExtractionModel` interface and registered in `src/models/registry.py`.
+Existing registered models can therefore be selected through `configs/models.yaml` without changing the parsing or evaluation pipeline. Shared served-model clients are configured in `src/llm/registry.py`; extraction models are registered in `src/extraction/extractor.py`.
 
 ## Candidate Schema
 
-`src/models/schema.py::CandidateProfile` approximates the target HR AI application's demo sections until the real API contract is available.
+`src/extraction/schema.py::CandidateProfile` approximates the target HR AI application's demo sections until the real API contract is available.
 
 ### Profile
 
@@ -162,7 +162,7 @@ export QWEN_7B_BASE_URL=http://localhost:8001/v1
 export DEFAULT_MODEL_KEY=mock
 ```
 
-Model IDs and serving URLs can also be overridden through their corresponding environment variables defined in `src/models/registry.py`.
+Model IDs and serving URLs can also be overridden through their corresponding environment variables defined in `src/llm/registry.py`.
 
 Do not commit API keys or other secrets to the repository.
 
@@ -279,13 +279,12 @@ CandidateProfile
 
 To add a new model:
 
-1. Create a model implementation under `src/models/`.
-2. Subclass `ResumeExtractionModel`.
-3. Implement `_call(self, prompt: str) -> str`.
-4. Register the model in `src/models/registry.py`.
-5. Add its key to `configs/models.yaml`.
+1. Add a shared client under `src/llm/` if a new transport is needed.
+2. Implement the extraction task under `src/extraction/` using `ResumeExtractionModel`.
+3. Register the shared client in `src/llm/registry.py` and the extraction model in `src/extraction/extractor.py`.
+4. Add its key to `configs/models.yaml`.
 
-OpenAI-compatible candidates can reuse `OpenAICompatibleModel`, allowing models served through systems such as vLLM to be changed mainly through configuration rather than new integration code.
+OpenAI-compatible candidates can reuse `OpenAICompatibleClient` with `OpenAICompatibleModel`, allowing models served through systems such as vLLM to be changed mainly through configuration rather than new integration code. Future job matching accepts a `CandidateProfile` and job description through `src/matching/`; its prompt and deterministic scoring are separate from extraction.
 
 ## Evaluation Metrics
 

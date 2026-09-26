@@ -13,9 +13,9 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 from statistics import mean
-from typing import Dict, List
+from typing import Callable, Dict, List
 
-from ..models.base import ResumeExtractionModel
+from ..extraction.extractor import ExtractionResult, ResumeExtractionModel
 from ..parsing.pipeline import run_parsing_pipeline
 from .metrics import ResumeEvalResult, evaluate_profile
 
@@ -66,6 +66,7 @@ def load_eval_dataset(data_dir: str) -> List[EvalItem]:
 def run_evaluation(
     models: Dict[str, ResumeExtractionModel],
     eval_items: List[EvalItem],
+    on_attempt: Callable[[EvalItem, ResumeEvalResult, ExtractionResult], None] | None = None,
 ) -> List[ResumeEvalResult]:
     """Runs every model against every eval item. Parsing happens once per
     resume (not once per model) since the parsing pipeline is model-
@@ -94,6 +95,8 @@ def run_evaluation(
                 error=extraction.error,
             )
             results.append(result)
+            if on_attempt is not None:
+                on_attempt(item, result, extraction)
 
     return results
 

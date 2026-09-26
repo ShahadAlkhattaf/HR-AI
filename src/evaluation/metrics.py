@@ -14,19 +14,19 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
-from ..models.schema import CandidateProfile
+from ..extraction.schema import CandidateProfile
 
 # Fields scored as flat strings (simple normalized-string match)
 SCALAR_FIELDS = ["full_name", "email", "phone", "years_of_experience"]
 
 # Fields scored as sets of strings (order doesn't matter, near-duplicates ok)
-LIST_STRING_FIELDS = ["technical_skills", "soft_skills"]
+LIST_STRING_FIELDS = ["skills"]
 
 # Fields scored as sets of structured entries (compared on a key sub-field)
 LIST_OBJECT_FIELDS = {
     "education": "institution",
     "work_experience": "company",
-    "certifications": "name",
+    "certificates": "name",
     "languages": "language",
 }
 

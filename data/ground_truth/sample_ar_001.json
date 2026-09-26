@@ -1,72 +1,93 @@
 {
-  "full_name": "سارة الأمين",
-  "email": "sarah.alamin@example.com",
-  "phone": "+966501234567",
+  "full_name": "Sample Candidate",
+  "email": "sample@example.com",
+  "phone": "+966-50-000-0000",
   "location": "الرياض، المملكة العربية السعودية",
-  "summary": "مهندسة برمجيات لديها خمس سنوات من الخبرة في بناء خطوط البيانات والبنية التحتية للتعلم الآلي.",
-  "github": "github.com/sarahalamin",
-  "linkedin": null,
-  "portfolio": null,
+  "summary": "خريج علم بيانات لديه خبرة عملية في بناء خطوط أنابيب الذكاء الاصطناعي وأنظمة MLOps والبرمجيات منخفضة المستوى. يمتلك مهارات في التعلم الآلي من البداية إلى النهاية، بدءًا من إدخال البيانات وتدريب النماذج وصولًا إلى النشر باستخدام الحاويات وCI/CD. لديه سجل مثبت في تقديم حلول جاهزة للإنتاج في مجالات متعددة.",
+  "github": "https://github.com/sample-candidate",
+  "linkedin": "https://www.linkedin.com/in/sample-candidate/",
+  "portfolio": "https://sample.dev",
   "skills": [
-    "بايثون",
-    "إس كيو إل",
-    "دوكر",
-    "كوبرنيتيس",
-    "أمازون ويب سيرفيسز",
-    "القيادة",
-    "التواصل",
-    "حل المشكلات"
+    "C++",
+    "Java",
+    "Python",
+    "SQL",
+    "NoSQL",
+    "R",
+    "PyTorch",
+    "TensorFlow",
+    "Scikit-learn",
+    "XGBoost",
+    "ARIMA",
+    "LSTM",
+    "Pandas",
+    "NumPy",
+    "Apache Spark",
+    "Kafka",
+    "Hadoop",
+    "FastAPI",
+    "Flask",
+    "Node.js",
+    "REST APIs",
+    "PostgreSQL",
+    "MongoDB",
+    "Redis",
+    "AWS App Runner",
+    "AWS S3",
+    "AWS EC2",
+    "AWS EKS",
+    "Git",
+    "Docker",
+    "CI",
+    "CD (GitHub Actions)",
+    "Linux",
+    "AWS",
+    "CI/CD",
+    "GitHub Actions",
+    "Machine Learning",
+    "NLP",
+    "OOP",
+    "OpenCV"
   ],
   "certificates": [
     {
-      "name": "شهادة AWS للحلول المعمارية المعتمدة",
-      "issuer": "أمازون",
-      "issue_date": "2022",
+      "name": "AWS Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "issue_date": null,
       "expiry_date": null
     }
   ],
   "projects": [
     {
-      "name": "محلل السير الذاتية",
-      "link": "github.com/sarahalamin/resume-parser",
-      "description": "خط أنابيب مفتوح المصدر لتحليل السير الذاتية ثنائية اللغة."
+      "name": "Job Application Orchestrator",
+      "link": "https://github.com/sample-candidate/job-orchestrator",
+      "description": "تم تقليل زمن معالجة كل طلب توظيف إلى أقل من 25 ثانية من خلال تنسيق خط أنابيب LLM مكوّن من أربعة وكلاء. وتم عرض أفضل 30 تطابقًا للوظائف في أقل من 550 مللي ثانية من خلال بناء وكيل مطابقة من ثلاث مراحل على أكثر من 10 آلاف..."
+    },
+    {
+      "name": "نظام توقع الطلب على الطاقة باستخدام MLOps من البداية إلى النهاية",
+      "link": "https://github.com/sample-candidate/load-forecasting",
+      "description": "تم تدريب نموذج للتنبؤ بالطلب على الطاقة باستخدام XGBoost على 1.3 مليون سجل مع ضبط للمعاملات الفائقة باستخدام RandomSearch. وتمت حاوية خدمة الاستدلال باستخدام FastAPI وDocker لتوفير عمليات نشر محمولة وقابلة لإعادة الإنتاج."
     }
   ],
   "education": [
     {
-      "degree": "بكالوريوس علوم حاسب",
-      "institution": "جامعة الملك سعود",
-      "start_year": "2016",
-      "end_year": "2020",
-      "gpa": "3.8"
+      "degree": "بكالوريوس العلوم في علم البيانات",
+      "institution": "جامعة نموذج",
+      "start_year": "2020",
+      "end_year": "2024",
+      "gpa": "3.8/4.0"
     }
   ],
   "work_experience": [
     {
-      "company": "شركة أكمي للتحليلات",
-      "role": "مهندسة برمجيات",
-      "start_date": "2020",
-      "end_date": "2023",
-      "description": "بناء خطوط بيانات وأدوات داخلية باستخدام بايثون."
-    },
-    {
-      "company": "داتاكور",
-      "role": "مهندسة برمجيات أولى",
-      "start_date": "2023",
-      "end_date": "حتى الآن",
-      "description": "تقود فريقاً لبناء البنية التحتية للتعلم الآلي."
+      "company": "شركة نموذج للتحليلات",
+      "role": "مهندس ذكاء اصطناعي (بعقد)",
+      "start_date": "أغسطس 2022",
+      "end_date": "مايو 2026",
+      "description": "تم تطوير خط أنابيب متكامل لإنشاء صور Orthomosaic للزراعة الدقيقة باستخدام OpenCV وGDAL، وتحويل صور الطائرات بدون طيار إلى خرائط مرتبطة جغرافيًا. وتم تنفيذ خوارزميات اكتشاف النقاط المميزة ومطابقتها لبناء نظام معالجة قابل للتوسع لبيانات الطائرات بدون طيار. وتم تطوير نظام آلي..."
     }
   ],
-  "languages": [
-    {
-      "language": "العربية",
-      "proficiency": "اللغة الأم"
-    },
-    {
-      "language": "الإنجليزية",
-      "proficiency": "طلاقة"
-    }
-  ],
-  "years_of_experience": 5,
+  "languages": [],
+  "years_of_experience": null,
   "detected_source_language": "ar"
 }

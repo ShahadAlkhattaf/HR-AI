@@ -1,12 +1,14 @@
 import sys
 from pathlib import Path
+import pytest
+from pydantic import ValidationError
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from src.utils.language import detect_language, normalize_arabic, clean_text
 from src.evaluation.metrics import score_list_string_field, score_scalar_field
-from src.models.schema import CandidateProfile
+from src.extraction.schema import CandidateProfile
 
 
 def test_detect_language_english():
@@ -72,3 +74,26 @@ def test_candidate_profile_missing_fields_default_safely():
     assert profile.projects == []
     assert profile.education == []
     assert profile.work_experience == []
+
+
+def test_candidate_profile_normalizes_numeric_string_fields():
+    profile = CandidateProfile.model_validate({
+        "phone": 550081145,
+        "education": [{"start_year": 2020, "end_year": 2024.0, "gpa": 4.5}],
+        "work_experience": [{"start_date": 2021, "end_date": 2025.0}],
+        "certificates": [{"issue_date": 2022, "expiry_date": 2027.0}],
+    })
+
+    assert profile.phone == "550081145"
+    assert profile.education[0].start_year == "2020"
+    assert profile.education[0].end_year == "2024"
+    assert profile.education[0].gpa == "4.5"
+    assert profile.work_experience[0].start_date == "2021"
+    assert profile.work_experience[0].end_date == "2025"
+    assert profile.certificates[0].issue_date == "2022"
+    assert profile.certificates[0].expiry_date == "2027"
+
+
+def test_candidate_profile_keeps_structured_languages_strict():
+    with pytest.raises(ValidationError):
+        CandidateProfile.model_validate({"languages": ["English"]})

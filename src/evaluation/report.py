@@ -29,12 +29,6 @@ def render_markdown_report(summary: Dict[str, dict]) -> str:
             f"| {model_name} | {s['n_total']} | {s['json_validity_rate']:.1%} "
             f"| {s['avg_f1_overall']:.3f} | {en_f1} | {ar_f1} | {s['avg_latency_seconds_overall']:.2f} |"
         )
-    lines.append("")
-    lines.append(
-        "_Infrastructure metrics (GPU/VRAM, throughput, cost) are tracked "
-        "separately once candidate models are deployed for benchmarking — "
-        "see requirement #5 / #6._"
-    )
     return "\n".join(lines)
 
 

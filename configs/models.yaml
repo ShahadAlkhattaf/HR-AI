@@ -1,4 +1,4 @@
-# Which registered models (see src/models/registry.py) to include in an
+# Which registered extraction models (see src/extraction/extractor.py) to include in an
 # evaluation run. Edit this list instead of touching evaluator code to
 # add/remove/replace candidate models.
 

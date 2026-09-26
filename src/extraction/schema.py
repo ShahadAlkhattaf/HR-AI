@@ -16,7 +16,17 @@ renaming fields, not restructuring data.
 from __future__ import annotations
 
 from typing import List, Optional
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
+
+
+def _numeric_to_string(value: object) -> object:
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, int):
+        return str(value)
+    if isinstance(value, float):
+        return str(int(value)) if value.is_integer() else str(value)
+    return value
 
 
 class EducationEntry(BaseModel):
@@ -25,6 +35,11 @@ class EducationEntry(BaseModel):
     start_year: Optional[str] = None
     end_year: Optional[str] = None
     gpa: Optional[str] = None
+
+    @field_validator("start_year", "end_year", "gpa", mode="before")
+    @classmethod
+    def normalize_numeric_fields(cls, value: object) -> object:
+        return _numeric_to_string(value)
 
     model_config = ConfigDict(extra="ignore")
 
@@ -36,6 +51,11 @@ class WorkExperienceEntry(BaseModel):
     end_date: Optional[str] = None
     description: Optional[str] = None
 
+    @field_validator("start_date", "end_date", mode="before")
+    @classmethod
+    def normalize_numeric_dates(cls, value: object) -> object:
+        return _numeric_to_string(value)
+
     model_config = ConfigDict(extra="ignore")
 
 
@@ -44,6 +64,11 @@ class CertificateEntry(BaseModel):
     issuer: Optional[str] = None
     issue_date: Optional[str] = None
     expiry_date: Optional[str] = None
+
+    @field_validator("issue_date", "expiry_date", mode="before")
+    @classmethod
+    def normalize_numeric_dates(cls, value: object) -> object:
+        return _numeric_to_string(value)
 
     model_config = ConfigDict(extra="ignore")
 
@@ -108,6 +133,11 @@ class CandidateProfile(BaseModel):
 
     # metadata useful for bilingual analysis / debugging, not scored directly
     detected_source_language: Optional[str] = None  # "en" | "ar" | "mixed"
+
+    @field_validator("phone", mode="before")
+    @classmethod
+    def normalize_numeric_phone(cls, value: object) -> object:
+        return _numeric_to_string(value)
 
     model_config = ConfigDict(extra="ignore")
 

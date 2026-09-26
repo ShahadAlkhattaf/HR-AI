@@ -1,0 +1,20 @@
+# Evaluation and testing
+src/evaluation/
+tests/
+scripts/
+data/
+reports/
+
+# Git
+.git/
+.gitignore
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local environment
+.env
+.venv/
+venv/

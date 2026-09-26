@@ -3,7 +3,7 @@ Thin FastAPI baseline around the existing parsing + model pipeline.
 
     upload (PDF/DOCX)
       -> existing parsing pipeline (src/parsing)
-      -> selected ResumeExtractionModel (src/models/registry.py)
+      -> selected ResumeExtractionModel (src/extraction/extractor.py)
       -> CandidateProfile
       -> JSON response
 
@@ -24,9 +24,7 @@ from pathlib import Path
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import JSONResponse
 
-from ..models.claude_model import ClaudeModel
-from ..models.openai_compatible_model import OpenAICompatibleModel
-from ..models.registry import available_models, get_model
+from ..extraction.extractor import OpenAICompatibleModel, available_models, get_model
 from ..parsing.file_parser import UnsupportedFileTypeError
 from ..parsing.pipeline import run_parsing_pipeline
 
@@ -64,9 +62,7 @@ def list_models() -> dict:
             model = get_model(key)
         except KeyError:
             continue
-        if isinstance(model, ClaudeModel):
-            model_type = "anthropic"
-        elif isinstance(model, OpenAICompatibleModel):
+        if isinstance(model, OpenAICompatibleModel):
             model_type = "openai-compatible"
         else:
             model_type = "mock"

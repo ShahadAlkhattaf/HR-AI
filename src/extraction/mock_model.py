@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import json
 
-from .base import ResumeExtractionModel
+from .extractor import ResumeExtractionModel
 from ..utils.language import detect_language
 
 
