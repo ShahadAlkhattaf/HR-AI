@@ -1,10 +1,4 @@
-"""
-Mock model: no API calls, deterministic output.
-
-Used to smoke-test the pipeline (parsing -> model interface -> evaluator ->
-metrics) end-to-end before spending money on real model calls, and useful
-in CI. Not a "candidate" model for the real evaluation.
-"""
+"""Deterministic extraction stub for testing without model requests."""
 from __future__ import annotations
 
 import json
@@ -18,9 +12,7 @@ class MockModel(ResumeExtractionModel):
         self.name = name
 
     def _call(self, prompt: str) -> str:
-        # Pull the resume text back out of the prompt just for the demo,
-        # and return a syntactically-valid but low-effort profile so the
-        # evaluator machinery can be exercised without any real inference.
+        # Detect language from resume text rather than prompt instructions.
         resume_text = prompt.split("RESUME TEXT:\n---\n")[-1].split("\n---")[0]
         lang = detect_language(resume_text)
         payload = {

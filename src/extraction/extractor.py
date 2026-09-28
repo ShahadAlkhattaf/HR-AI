@@ -7,6 +7,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Optional
 
+from ..llm.base import LLMResponse
 from ..llm.openai_compatible import OpenAICompatibleClient
 from ..llm.registry import available_clients, get_client
 from .prompt import build_extraction_prompt
@@ -15,10 +16,7 @@ from .schema import CandidateProfile
 
 @dataclass
 class ExtractionResult:
-    """Wraps a model's output with the metadata the evaluator needs
-    (latency, raw response, and whether JSON parsing succeeded) so quality
-    and infrastructure metrics can both be computed from the same call.
-    """
+    """Profile and response diagnostics from one extraction attempt."""
 
     model_name: str
     profile: Optional[CandidateProfile]
@@ -26,28 +24,24 @@ class ExtractionResult:
     latency_seconds: float
     json_valid: bool
     error: Optional[str] = None
+    prompt_tokens: Optional[int] = None
+    completion_tokens: Optional[int] = None
+    total_tokens: Optional[int] = None
 
 
 class ResumeExtractionModel(ABC):
-    """Base class every candidate model wraps itself in."""
 
-    #: short identifier used in reports/filenames
     name: str = "unnamed-model"
 
     @abstractmethod
     def _call(self, prompt: str) -> str:
-        """Send `prompt` to the underlying model and return the raw text
-        response. Subclasses implement only this method.
-        """
+        """Return raw model text for the extraction prompt."""
         raise NotImplementedError
 
     def build_prompt(self, resume_text: str) -> str:
         return build_extraction_prompt(resume_text)
 
     def extract(self, resume_text: str) -> ExtractionResult:
-        """Runs extraction for one resume and returns a structured result.
-        This is what the evaluator calls — identical for every model.
-        """
         prompt = self.build_prompt(resume_text)
 
         start = time.perf_counter()
@@ -184,6 +178,16 @@ def _merge_profiles(profiles: list[CandidateProfile]) -> CandidateProfile:
     return CandidateProfile.model_validate(data)
 
 
+def _usage_totals(responses: list[LLMResponse]) -> dict[str, int | None]:
+    fields = ("prompt_tokens", "completion_tokens", "total_tokens")
+    return {
+        field: sum(getattr(response, field) for response in responses)
+        if responses and all(getattr(response, field) is not None for response in responses)
+        else None
+        for field in fields
+    }
+
+
 class OpenAICompatibleModel(ResumeExtractionModel):
     """Extraction task using a shared OpenAI-compatible client."""
 
@@ -192,11 +196,15 @@ class OpenAICompatibleModel(ResumeExtractionModel):
         self.name = display_name or client.model_id
 
     def _call(self, prompt: str) -> str:
-        return self.client.complete(prompt, _DEFAULT_MAX_TOKENS)
+        return self.client.complete(prompt, _DEFAULT_MAX_TOKENS).content
 
-    def _extract_once(self, resume_text: str, max_tokens: int) -> tuple[CandidateProfile, str]:
+    def _extract_once(
+        self, resume_text: str, max_tokens: int, usage: list[LLMResponse]
+    ) -> tuple[CandidateProfile, str]:
         prompt = self.build_prompt(resume_text)
-        raw = self._call(prompt) if max_tokens == _DEFAULT_MAX_TOKENS else self.client.complete(prompt, max_tokens)
+        response = self.client.complete(prompt, max_tokens)
+        usage.append(response)
+        raw = response.content
         try:
             data = json.loads(_strip_code_fences(raw))
         except json.JSONDecodeError as error:
@@ -206,13 +214,15 @@ class OpenAICompatibleModel(ResumeExtractionModel):
         except Exception as error:
             raise _InvalidProfile(raw, error) from error
 
-    def _extract_with_fallback(self, resume_text: str, depth: int = 0) -> tuple[CandidateProfile, list[str]]:
+    def _extract_with_fallback(
+        self, resume_text: str, usage: list[LLMResponse], depth: int = 0
+    ) -> tuple[CandidateProfile, list[str]]:
         try:
-            profile, raw = self._extract_once(resume_text, _DEFAULT_MAX_TOKENS)
+            profile, raw = self._extract_once(resume_text, _DEFAULT_MAX_TOKENS, usage)
             return profile, [raw]
         except _InvalidJSON:
             try:
-                profile, raw = self._extract_once(resume_text, _RETRY_MAX_TOKENS)
+                profile, raw = self._extract_once(resume_text, _RETRY_MAX_TOKENS, usage)
                 return profile, [raw]
             except _InvalidJSON as error:
                 failure = error
@@ -230,21 +240,23 @@ class OpenAICompatibleModel(ResumeExtractionModel):
         left, right = _split_resume_text(resume_text)
         if not left or not right:
             raise failure
-        left_profile, left_raw = self._extract_with_fallback(left, depth + 1)
-        right_profile, right_raw = self._extract_with_fallback(right, depth + 1)
+        left_profile, left_raw = self._extract_with_fallback(left, usage, depth + 1)
+        right_profile, right_raw = self._extract_with_fallback(right, usage, depth + 1)
         return _merge_profiles([left_profile, right_profile]), left_raw + right_raw
 
     def extract(self, resume_text: str) -> ExtractionResult:
-        """Use the normal request first; recover only from transport, size, or JSON syntax failures."""
+        """Retry transport failures and fall back on context-length or JSON syntax errors."""
         start = time.perf_counter()
+        usage: list[LLMResponse] = []
         try:
-            profile, responses = self._extract_with_fallback(resume_text)
+            profile, responses = self._extract_with_fallback(resume_text, usage)
             return ExtractionResult(
                 model_name=self.name,
                 profile=profile,
                 raw_response=responses[0] if len(responses) == 1 else json.dumps(responses, ensure_ascii=False),
                 latency_seconds=time.perf_counter() - start,
                 json_valid=True,
+                **_usage_totals(usage),
             )
         except _InvalidResponse as error:
             return ExtractionResult(
@@ -254,6 +266,7 @@ class OpenAICompatibleModel(ResumeExtractionModel):
                 latency_seconds=time.perf_counter() - start,
                 json_valid=False,
                 error=f"JSON parse/validation failed: {error.cause}",
+                **_usage_totals(usage),
             )
         except Exception as error:
             return ExtractionResult(
@@ -263,6 +276,7 @@ class OpenAICompatibleModel(ResumeExtractionModel):
                 latency_seconds=time.perf_counter() - start,
                 json_valid=False,
                 error=f"model call failed: {error}",
+                **_usage_totals(usage),
             )
 
 

@@ -1,17 +1,4 @@
-"""
-Creates a couple of tiny sample resumes (1 English, 1 Arabic) plus matching
-ground-truth JSON so the pipeline and evaluator can be smoke-tested before
-any real resumes / human-reviewed ground truth are added.
-
-IMPORTANT: each resume's ground truth must match what is actually written in that resume's own language/script. Using
-one resume's (e.g. English) ground truth for the other language's file
-silently corrupts Arabic-vs-English quality comparisons, since the scorer
-would be comparing the Arabic model output against English-language
-expected values. Ground truth here is evaluation-only; it is never fed
-into the model during inference.
-
-Run: python scripts/seed_sample_data.py
-"""
+"""Create synthetic English and Arabic resumes with language-matched ground truth."""
 from __future__ import annotations
 
 import json
@@ -87,8 +74,7 @@ sarah.alamin@example.com | 966501234567+ | الرياض، المملكة الع�
 العربية (اللغة الأم)، الإنجليزية (طلاقة)
 """
 
-# Ground truth for the ENGLISH resume: every value here is taken verbatim
-# (or trivially normalized) from EN_RESUME_TEXT above.
+# Ground truth follows the source resume language and wording.
 EN_GROUND_TRUTH = {
     "full_name": "Sarah Al-Amin",
     "email": "sarah.alamin@example.com",
@@ -153,13 +139,7 @@ EN_GROUND_TRUTH = {
     "detected_source_language": "en",
 }
 
-# Ground truth for the ARABIC resume: values are taken from AR_RESUME_TEXT
-# in their original Arabic script (per the parsing pipeline's rule of
-# preserving names/terms in their original language), not translated back
-# to English. Only language-agnostic tokens (emails, URLs, numbers) match
-# the English resume's ground truth by coincidence, since this is the same
-# underlying person's data restated in Arabic, not a shared ground-truth
-# object.
+# Arabic ground truth is language-specific, even for the same candidate.
 AR_GROUND_TRUTH = {
     "full_name": "سارة الأمين",
     "email": "sarah.alamin@example.com",
@@ -245,8 +225,6 @@ def main():
     (gt_dir / "sample_en_001.json").write_text(
         json.dumps(EN_GROUND_TRUTH, indent=2, ensure_ascii=False), encoding="utf-8"
     )
-    # Separate, language-matched ground truth for the Arabic sample (fixes
-    # the previous bug where both files shared the English ground truth).
     (gt_dir / "sample_ar_001.json").write_text(
         json.dumps(AR_GROUND_TRUTH, indent=2, ensure_ascii=False), encoding="utf-8"
     )

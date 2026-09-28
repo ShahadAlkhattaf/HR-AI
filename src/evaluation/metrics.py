@@ -1,14 +1,4 @@
-"""
-Evaluation metrics.
-
-Kept extensible on purpose: quality metrics here now, infrastructure
-metrics (latency/VRAM/throughput/cost) added alongside without touching
-this module's shape - see evaluation/evaluator.py for how they're combined
-into one report row.
-
-All numbers here come from actually running a model against ground truth;
-nothing in this file fabricates a result.
-"""
+"""Deterministic field scoring against ground truth using normalized exact matches."""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -16,13 +6,13 @@ from typing import Any, Dict, List, Optional
 
 from ..extraction.schema import CandidateProfile
 
-# Fields scored as flat strings (simple normalized-string match)
+# Scalars use normalized exact matching.
 SCALAR_FIELDS = ["full_name", "email", "phone", "years_of_experience"]
 
-# Fields scored as sets of strings (order doesn't matter, near-duplicates ok)
+# Lists ignore ordering and duplicate normalized values.
 LIST_STRING_FIELDS = ["skills"]
 
-# Fields scored as sets of structured entries (compared on a key sub-field)
+# Structured entries are compared only on the selected key.
 LIST_OBJECT_FIELDS = {
     "education": "institution",
     "work_experience": "company",
@@ -52,12 +42,17 @@ class FieldScore:
 class ResumeEvalResult:
     resume_id: str
     model_name: str
-    language: str  # "en" | "ar" | "mixed" — from ground truth metadata
+    language: str  # Dataset language
     json_valid: bool
     latency_seconds: float
     field_scores: List[FieldScore] = field(default_factory=list)
     overall_f1: float = 0.0
     error: Optional[str] = None
+    overall_precision: Optional[float] = None
+    overall_recall: Optional[float] = None
+    prompt_tokens: Optional[int] = None
+    completion_tokens: Optional[int] = None
+    total_tokens: Optional[int] = None
 
 
 def _prf1(predicted: set, expected: set) -> tuple[float, float, float, int]:
@@ -109,11 +104,11 @@ def evaluate_profile(
     json_valid: bool,
     latency_seconds: float,
     error: Optional[str] = None,
+    prompt_tokens: Optional[int] = None,
+    completion_tokens: Optional[int] = None,
+    total_tokens: Optional[int] = None,
 ) -> ResumeEvalResult:
-    """Compares a model's predicted CandidateProfile against a ground-truth
-    dict (loaded from data/ground_truth/*.json) and returns per-field and
-    overall scores.
-    """
+    """Score valid profiles by field and take the macro average of field scores."""
     if not json_valid or predicted is None:
         return ResumeEvalResult(
             resume_id=resume_id,
@@ -124,6 +119,9 @@ def evaluate_profile(
             field_scores=[],
             overall_f1=0.0,
             error=error or "invalid JSON output",
+            prompt_tokens=prompt_tokens,
+            completion_tokens=completion_tokens,
+            total_tokens=total_tokens,
         )
 
     pred_dict = predicted.model_dump()
@@ -141,6 +139,8 @@ def evaluate_profile(
         )
 
     overall_f1 = sum(s.f1 for s in scores) / len(scores) if scores else 0.0
+    overall_precision = sum(s.precision for s in scores) / len(scores) if scores else 0.0
+    overall_recall = sum(s.recall for s in scores) / len(scores) if scores else 0.0
 
     return ResumeEvalResult(
         resume_id=resume_id,
@@ -150,4 +150,9 @@ def evaluate_profile(
         latency_seconds=latency_seconds,
         field_scores=scores,
         overall_f1=overall_f1,
+        overall_precision=overall_precision,
+        overall_recall=overall_recall,
+        prompt_tokens=prompt_tokens,
+        completion_tokens=completion_tokens,
+        total_tokens=total_tokens,
     )

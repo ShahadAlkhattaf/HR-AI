@@ -1,10 +1,4 @@
-"""
-Save parsed text, ground truth, and served-model output for each resume.
-
-Usage:
-    python scripts/inspect_extractions.py --language ar
-    python scripts/inspect_extractions.py --language en
-"""
+"""Save parsed text, ground truth, and extraction output for inspection."""
 from __future__ import annotations
 
 import argparse

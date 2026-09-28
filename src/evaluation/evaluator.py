@@ -1,12 +1,4 @@
-"""
-Evaluator: the harness that ties everything together.
-
-    Parsed Resume Text -> Model A/B/C -> Structured JSON -> compare to ground truth -> report
-
-Iterates every (resume, model) pair, calls the common model interface, and
-scores against ground truth. English and Arabic resumes are scored
-separately as well as combined, per requirement #4.
-"""
+"""Evaluate model extractions against ground truth and summarize results by language."""
 from __future__ import annotations
 
 import json
@@ -29,12 +21,7 @@ class EvalItem:
 
 
 def load_eval_dataset(data_dir: str) -> List[EvalItem]:
-    """Expects the layout described in the project requirements:
-
-        data/resumes/english/*.pdf|*.docx
-        data/resumes/arabic/*.pdf|*.docx
-        data/ground_truth/<resume_id>.json
-    """
+    """Pair resumes in data/resumes/english and data/resumes/arabic with ground truth by exact filename stem."""
     data_root = Path(data_dir)
     items: List[EvalItem] = []
 
@@ -48,8 +35,7 @@ def load_eval_dataset(data_dir: str) -> List[EvalItem]:
             resume_id = resume_path.stem
             gt_path = data_root / "ground_truth" / f"{resume_id}.json"
             if not gt_path.exists():
-                # No ground truth yet — skip, but this should be flagged
-                # loudly by the caller rather than silently ignored.
+                # Unpaired resumes are omitted from evaluation.
                 continue
             ground_truth = json.loads(gt_path.read_text(encoding="utf-8"))
             items.append(
@@ -68,13 +54,9 @@ def run_evaluation(
     eval_items: List[EvalItem],
     on_attempt: Callable[[EvalItem, ResumeEvalResult, ExtractionResult], None] | None = None,
 ) -> List[ResumeEvalResult]:
-    """Runs every model against every eval item. Parsing happens once per
-    resume (not once per model) since the parsing pipeline is model-
-    independent — this is the modularity the requirements call for.
-    """
+    """Parse each resume once and reuse its text across all configured models."""
     results: List[ResumeEvalResult] = []
 
-    # Parse each resume exactly once, reuse across all models.
     parsed_cache: Dict[str, str] = {}
     for item in eval_items:
         parsed = run_parsing_pipeline(item.resume_path)
@@ -93,6 +75,9 @@ def run_evaluation(
                 json_valid=extraction.json_valid,
                 latency_seconds=extraction.latency_seconds,
                 error=extraction.error,
+                prompt_tokens=extraction.prompt_tokens,
+                completion_tokens=extraction.completion_tokens,
+                total_tokens=extraction.total_tokens,
             )
             results.append(result)
             if on_attempt is not None:
@@ -102,8 +87,32 @@ def run_evaluation(
 
 
 def summarize(results: List[ResumeEvalResult]) -> Dict[str, dict]:
-    """Aggregates per-model, and per-model-per-language, summary stats."""
     summary: Dict[str, dict] = {}
+
+    def average(values):
+        known = [value for value in values if value is not None]
+        return round(mean(known), 4) if known else None
+
+    def field_averages(valid_results):
+        by_field = {}
+        for result in valid_results:
+            for score in result.field_scores:
+                by_field.setdefault(score.field, []).append(score)
+        return {
+            field: {
+                "precision": round(mean(score.precision for score in scores), 4),
+                "recall": round(mean(score.recall for score in scores), 4),
+                "f1": round(mean(score.f1 for score in scores), 4),
+                "n": len(scores),
+            }
+            for field, scores in by_field.items()
+        }
+
+    def usage_averages(attempts):
+        return {
+            f"avg_{field}": average(getattr(result, field) for result in attempts)
+            for field in ("prompt_tokens", "completion_tokens", "total_tokens")
+        }
 
     by_model: Dict[str, List[ResumeEvalResult]] = {}
     for r in results:
@@ -114,20 +123,32 @@ def summarize(results: List[ResumeEvalResult]) -> Dict[str, dict]:
         json_validity_rate = len(valid) / len(model_results) if model_results else 0.0
 
         def lang_stats(lang: str):
-            subset = [r for r in valid if r.language == lang]
-            if not subset:
+            attempts = [r for r in model_results if r.language == lang]
+            if not attempts:
                 return None
+            subset = [r for r in attempts if r.json_valid]
             return {
                 "n": len(subset),
-                "avg_f1": round(mean(r.overall_f1 for r in subset), 4),
-                "avg_latency_seconds": round(mean(r.latency_seconds for r in subset), 3),
+                "n_total": len(attempts),
+                "json_validity_rate": round(len(subset) / len(attempts), 4),
+                "avg_precision": average(r.overall_precision for r in subset),
+                "avg_recall": average(r.overall_recall for r in subset),
+                "avg_f1": round(mean(r.overall_f1 for r in subset), 4) if subset else 0.0,
+                "per_field": field_averages(subset),
+                "avg_latency_seconds": round(mean(r.latency_seconds for r in subset), 3) if subset else None,
+                "avg_latency_seconds_all": round(mean(r.latency_seconds for r in attempts), 3),
+                **usage_averages(attempts),
             }
 
         summary[model_name] = {
             "n_total": len(model_results),
             "json_validity_rate": round(json_validity_rate, 4),
+            "avg_precision_overall": average(r.overall_precision for r in valid),
+            "avg_recall_overall": average(r.overall_recall for r in valid),
             "avg_f1_overall": round(mean(r.overall_f1 for r in valid), 4) if valid else 0.0,
+            "per_field": field_averages(valid),
             "avg_latency_seconds_overall": round(mean(r.latency_seconds for r in model_results), 3),
+            **usage_averages(model_results),
             "english": lang_stats("en"),
             "arabic": lang_stats("ar"),
         }

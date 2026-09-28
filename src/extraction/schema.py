@@ -1,20 +1,9 @@
-"""
-Structured Candidate JSON schema.
-
-This is the single contract every model (Model A, B, C, ...) must produce.
-Keeping this schema separate from any model implementation is what lets us
-swap models without touching the parsing pipeline or the evaluator.
-
-Shape is designed to approximate the target HR AI application's demo
-sections (Profile / Certificates / Skills / Projects / Education /
-Experience) while we wait for the real API contract. Field names may need
-to be renamed once that contract is available, but the section boundaries
-below (Education, WorkExperience, Certificate, Project) are kept as
-separate models specifically so that remapping later is a matter of
-renaming fields, not restructuring data.
-"""
+"""Candidate profile schema with numeric and date normalization."""
 from __future__ import annotations
 
+import calendar
+import re
+from datetime import date
 from typing import List, Optional
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
@@ -29,6 +18,62 @@ def _numeric_to_string(value: object) -> object:
     return value
 
 
+_MONTHS = {
+    name.lower(): number
+    for number in range(1, 13)
+    for name in (calendar.month_name[number], calendar.month_abbr[number])
+}
+
+
+def _normalize_date(value: object) -> object:
+    """Normalize recognized dates without filling in missing components."""
+    value = _numeric_to_string(value)
+    if not isinstance(value, str):
+        return value
+
+    text = value.strip()
+    year_first = re.fullmatch(r"(\d{4})([./-])(\d{1,2})\2(\d{1,2})", text)
+    day_first = re.fullmatch(r"(\d{1,2})([./-])(\d{1,2})\2(\d{4})", text)
+    named_day_first = re.fullmatch(r"(\d{1,2})\s+([A-Za-z]+)\.?,?\s+(\d{4})", text)
+    named_month_first = re.fullmatch(r"([A-Za-z]+)\.?\s+(\d{1,2}),?\s+(\d{4})", text)
+    if year_first:
+        year, month, day = map(int, (year_first[1], year_first[3], year_first[4]))
+    elif day_first:
+        first, second, year = map(int, (day_first[1], day_first[3], day_first[4]))
+        # Prefer day/month/year; use month/day/year only when day-first is impossible.
+        day, month = (second, first) if first <= 12 < second else (first, second)
+    elif named_day_first and named_day_first[2].lower() in _MONTHS:
+        day = int(named_day_first[1])
+        month = _MONTHS[named_day_first[2].lower()]
+        year = int(named_day_first[3])
+    elif named_month_first and named_month_first[1].lower() in _MONTHS:
+        month = _MONTHS[named_month_first[1].lower()]
+        day = int(named_month_first[2])
+        year = int(named_month_first[3])
+    else:
+        year = month = day = None
+
+    if year is not None:
+        try:
+            return date(year, month, day).isoformat()
+        except ValueError:
+            return value
+
+    year_month = re.fullmatch(r"(\d{4})[./-](\d{1,2})", text)
+    month_year = re.fullmatch(r"(\d{1,2})[./-](\d{4})", text)
+    named_month = re.fullmatch(r"([A-Za-z]+)\.?\s+(\d{4})", text)
+    if year_month:
+        year, month = int(year_month[1]), int(year_month[2])
+    elif month_year:
+        month, year = int(month_year[1]), int(month_year[2])
+    elif named_month and named_month[1].lower() in _MONTHS:
+        month, year = _MONTHS[named_month[1].lower()], int(named_month[2])
+    else:
+        return value
+
+    return f"{year:04d}-{month:02d}" if 1 <= year <= 9999 and 1 <= month <= 12 else value
+
+
 class EducationEntry(BaseModel):
     degree: Optional[str] = None
     institution: Optional[str] = None
@@ -36,9 +81,14 @@ class EducationEntry(BaseModel):
     end_year: Optional[str] = None
     gpa: Optional[str] = None
 
-    @field_validator("start_year", "end_year", "gpa", mode="before")
+    @field_validator("start_year", "end_year", mode="before")
     @classmethod
-    def normalize_numeric_fields(cls, value: object) -> object:
+    def normalize_dates(cls, value: object) -> object:
+        return _normalize_date(value)
+
+    @field_validator("gpa", mode="before")
+    @classmethod
+    def normalize_numeric_gpa(cls, value: object) -> object:
         return _numeric_to_string(value)
 
     model_config = ConfigDict(extra="ignore")
@@ -54,7 +104,7 @@ class WorkExperienceEntry(BaseModel):
     @field_validator("start_date", "end_date", mode="before")
     @classmethod
     def normalize_numeric_dates(cls, value: object) -> object:
-        return _numeric_to_string(value)
+        return _normalize_date(value)
 
     model_config = ConfigDict(extra="ignore")
 
@@ -68,7 +118,7 @@ class CertificateEntry(BaseModel):
     @field_validator("issue_date", "expiry_date", mode="before")
     @classmethod
     def normalize_numeric_dates(cls, value: object) -> object:
-        return _numeric_to_string(value)
+        return _normalize_date(value)
 
     model_config = ConfigDict(extra="ignore")
 
@@ -101,7 +151,6 @@ class CandidateProfile(BaseModel):
       Experience:   work_experience
     """
 
-    # --- Profile ---
     full_name: Optional[str] = None
     email: Optional[str] = None
     phone: Optional[str] = None
@@ -111,27 +160,22 @@ class CandidateProfile(BaseModel):
     linkedin: Optional[str] = None
     portfolio: Optional[str] = None
 
-    # --- Skills (single flat list, matches the demo) ---
     skills: List[str] = Field(default_factory=list)
 
-    # --- Certificates ---
     certificates: List[CertificateEntry] = Field(default_factory=list)
 
-    # --- Projects ---
     projects: List[ProjectEntry] = Field(default_factory=list)
 
-    # --- Education ---
     education: List[EducationEntry] = Field(default_factory=list)
 
-    # --- Experience ---
     work_experience: List[WorkExperienceEntry] = Field(default_factory=list)
 
-    # --- Languages spoken (not the same as detected_source_language below) ---
+    # Spoken languages are separate from the detected resume language.
     languages: List[LanguageEntry] = Field(default_factory=list)
 
     years_of_experience: Optional[float] = None
 
-    # metadata useful for bilingual analysis / debugging, not scored directly
+    # Source-language metadata is not scored.
     detected_source_language: Optional[str] = None  # "en" | "ar" | "mixed"
 
     @field_validator("phone", mode="before")

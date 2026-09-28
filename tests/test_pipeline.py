@@ -1,3 +1,5 @@
+"""Tests for language handling, deterministic scoring, and profile validation."""
+
 import sys
 from pathlib import Path
 import pytest
@@ -64,8 +66,6 @@ def test_candidate_profile_schema_roundtrip():
 
 
 def test_candidate_profile_missing_fields_default_safely():
-    # Missing scalar fields -> None; missing collections -> [] — never a
-    # validation error, per the updated schema requirements.
     profile = CandidateProfile.model_validate({"full_name": "Only Name"})
     assert profile.email is None
     assert profile.location is None

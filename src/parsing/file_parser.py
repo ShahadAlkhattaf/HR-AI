@@ -1,18 +1,4 @@
-"""
-Stage 1: File Parser.
-
-Extracts raw text from PDF and DOCX resumes. Designed to be extraction-only:
-no cleaning, no language handling beyond safe UTF-8 decoding, no model calls.
-That logic lives in text_cleaner.py and the model layer respectively, so
-this stage stays swappable/testable in isolation.
-
-Arabic-safety notes:
-- We never transcode through non-UTF-8 codecs.
-- PyMuPDF (fitz) is used for PDF because it handles RTL/Arabic glyph
-  extraction far more reliably than pypdf for shaped Arabic text.
-- python-docx reads XML runs directly (already UTF-8), so DOCX Arabic text
-  is not at risk of corruption the way scanned/embedded-font PDFs are.
-"""
+"""Extract native text from PDF and DOCX resumes and flag pages needing OCR."""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -51,9 +37,7 @@ class ParseResult:
         return sum(p.char_count for p in self.pages)
 
 
-# A resume page with fewer than this many extracted characters is treated as
-# "extraction likely failed" (e.g. scanned image page, broken font encoding)
-# and flagged for OCR fallback.
+# Sparse native text can indicate a scan or broken font extraction; try OCR.
 MIN_CHARS_PER_PAGE_THRESHOLD = 20
 
 
@@ -64,8 +48,7 @@ def parse_pdf(path: str) -> ParseResult:
     pages: List[ParsedPage] = []
     try:
         for i, page in enumerate(doc):
-            # "text" mode preserves reading order reasonably well for both
-            # LTR and RTL scripts; PyMuPDF handles Arabic shaping correctly.
+            # PyMuPDF supports Arabic glyph extraction without manual transcoding.
             text = page.get_text("text")
             pages.append(ParsedPage(page_number=i + 1, text=text))
     finally:
@@ -113,7 +96,6 @@ def parse_docx(path: str) -> ParseResult:
 
 
 def parse_file(path: str) -> ParseResult:
-    """Entry point for stage 1. Dispatches on file extension."""
     ext = Path(path).suffix.lower()
     if ext == ".pdf":
         return parse_pdf(path)

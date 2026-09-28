@@ -16,5 +16,10 @@ __pycache__/
 
 # Local environment
 .env
-.venv/
-venv/
+.env.*
+!.env.example
+
+# UI 
+ui/node_modules/
+ui/dist/
+/package-lock.json

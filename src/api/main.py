@@ -1,42 +1,28 @@
-"""
-Thin FastAPI baseline around the existing parsing + model pipeline.
-
-    upload (PDF/DOCX)
-      -> existing parsing pipeline (src/parsing)
-      -> selected ResumeExtractionModel (src/extraction/extractor.py)
-      -> CandidateProfile
-      -> JSON response
-
-This is a baseline contract for local testing and for wiring up the
-eventual HR AI application, NOT the final agreed-upon API contract for
-that application. Endpoint paths/shape are deliberately simple so they're
-easy to adapt once the real contract is available.
-
-Run locally:
-    uvicorn src.api.main:app --reload
-"""
+"""HTTP API for bilingual resume parsing and structured profile extraction."""
 from __future__ import annotations
 
 import os
 import tempfile
 from pathlib import Path
 
+from dotenv import load_dotenv
+load_dotenv(override=True)
+
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from ..extraction.extractor import OpenAICompatibleModel, available_models, get_model
 from ..parsing.file_parser import UnsupportedFileTypeError
 from ..parsing.pipeline import run_parsing_pipeline
 
-# Model used when the caller doesn't specify one. Defaults to the free mock
-# model so the API is usable out of the box without any API keys; override
-# via env var once a real candidate model is configured/selected.
+# Default to mock so the API can start without model credentials.
 DEFAULT_MODEL_KEY = os.environ.get("DEFAULT_MODEL_KEY", "mock")
 
 SUPPORTED_EXTENSIONS = {".pdf", ".docx"}
 
 app = FastAPI(
-    title="Beamdata HR AI — Resume Extraction API (baseline)",
+    title="Beamdata HR AI - Resume Extraction API (baseline)",
     version="0.1.0",
     description=(
         "Baseline endpoints wrapping the bilingual resume parsing pipeline "
@@ -45,6 +31,16 @@ app = FastAPI(
     ),
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/health")
 def health() -> dict:

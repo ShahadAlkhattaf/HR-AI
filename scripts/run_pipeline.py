@@ -1,11 +1,4 @@
-"""
-Runs stages 1-4 of the pipeline (File Parser -> OCR fallback -> Clean/
-normalize) on a single resume and prints the result. Useful for debugging
-extraction/OCR issues in isolation, without touching any model.
-
-Usage:
-    python scripts/run_pipeline.py path/to/resume.pdf
-"""
+"""Print parsed resume text and metadata without calling a model."""
 from __future__ import annotations
 
 import sys

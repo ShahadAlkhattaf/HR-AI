@@ -13,11 +13,13 @@ venv/
 # Evaluation outputs
 reports/
 
+
 # Resume / evaluation data (contains PII)
 data/
 
 # Local/mock configs
 configs/mock_only.yaml
+/package-lock.json
 
 # IDE / OS
 .vscode/

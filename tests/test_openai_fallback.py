@@ -1,10 +1,13 @@
+"""Tests for model transport, extraction fallbacks, and response diagnostics."""
+
 import json
 from types import SimpleNamespace
 
 import httpx
-from openai import APIConnectionError, BadRequestError
+from openai import APIConnectionError, APITimeoutError, BadRequestError
 
 from src.extraction.extractor import OpenAICompatibleModel
+from src.llm.base import LLMResponse
 from src.llm.openai_compatible import OpenAICompatibleClient
 
 
@@ -21,11 +24,19 @@ def test_successful_request_keeps_existing_parameters(monkeypatch):
     calls = []
 
     def fake_client(**kwargs):
-        assert kwargs == {"base_url": "http://localhost:8000/v1", "api_key": "test-key"}
+        assert kwargs == {
+            "base_url": "http://localhost:8000/v1",
+            "api_key": "test-key",
+            "timeout": 120.0,
+            "max_retries": 0,
+        }
 
         def create(**params):
             calls.append(params)
-            return SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content='{"full_name":"Ada"}'))])
+            return SimpleNamespace(
+                choices=[SimpleNamespace(message=SimpleNamespace(content='{"full_name":"Ada"}'))],
+                usage=SimpleNamespace(prompt_tokens=12, completion_tokens=4, total_tokens=16),
+            )
 
         return SimpleNamespace(chat=SimpleNamespace(completions=SimpleNamespace(create=create)))
 
@@ -34,6 +45,7 @@ def test_successful_request_keeps_existing_parameters(monkeypatch):
 
     assert result.json_valid is True
     assert result.profile.full_name == "Ada"
+    assert (result.prompt_tokens, result.completion_tokens, result.total_tokens) == (12, 4, 16)
     assert len(calls) == 1
     assert calls[0]["model"] == "test-model"
     assert calls[0]["max_tokens"] == 2000
@@ -41,15 +53,17 @@ def test_successful_request_keeps_existing_parameters(monkeypatch):
     assert calls[0]["messages"][0]["content"].endswith("Ada resume text\n---\n\nJSON:")
 
 
-def test_connection_error_retries_model_call(monkeypatch):
+def test_connection_error_retries_model_call(monkeypatch, caplog):
     model = _model()
     calls = []
 
     def request(prompt, max_tokens):
         calls.append(max_tokens)
         if len(calls) == 1:
-            raise APIConnectionError(request=httpx.Request("POST", "http://localhost:8000/v1/chat/completions"))
-        return '{"skills":["Python"]}'
+            raise APIConnectionError(
+                request=httpx.Request("POST", "http://localhost:8000/v1/chat/completions")
+            ) from httpx.ConnectError("connection refused")
+        return LLMResponse('{"skills":["Python"]}')
 
     monkeypatch.setattr(model.client, "_request", request)
     monkeypatch.setattr("src.llm.openai_compatible.time.sleep", lambda _: None)
@@ -58,15 +72,39 @@ def test_connection_error_retries_model_call(monkeypatch):
     assert calls == [2000, 2000]
     assert result.json_valid is True
     assert result.profile.skills == ["Python"]
+    assert [record.message for record in caplog.records] == [
+        "Model connection attempt 1/2 failed: ConnectError: connection refused"
+    ]
 
 
-def test_persistent_connection_error_remains_invalid(monkeypatch):
+def test_timeout_error_uses_the_same_single_retry(monkeypatch):
     model = _model()
     calls = []
 
     def request(prompt, max_tokens):
         calls.append(max_tokens)
-        raise APIConnectionError(request=httpx.Request("POST", "http://localhost:8000/v1/chat/completions"))
+        if len(calls) == 1:
+            raise APITimeoutError(request=httpx.Request("POST", "http://localhost:8000/v1/chat/completions"))
+        return LLMResponse('{"full_name":"Ada"}')
+
+    monkeypatch.setattr(model.client, "_request", request)
+    monkeypatch.setattr("src.llm.openai_compatible.time.sleep", lambda _: None)
+    result = model.extract("Ada resume text")
+
+    assert calls == [2000, 2000]
+    assert result.json_valid is True
+    assert result.profile.full_name == "Ada"
+
+
+def test_persistent_connection_error_remains_invalid(monkeypatch, caplog):
+    model = _model()
+    calls = []
+
+    def request(prompt, max_tokens):
+        calls.append(max_tokens)
+        raise APIConnectionError(
+            request=httpx.Request("POST", "http://localhost:8000/v1/chat/completions")
+        ) from httpx.ConnectError("connection reset")
 
     monkeypatch.setattr(model.client, "_request", request)
     monkeypatch.setattr("src.llm.openai_compatible.time.sleep", lambda _: None)
@@ -74,7 +112,11 @@ def test_persistent_connection_error_remains_invalid(monkeypatch):
 
     assert calls == [2000, 2000]
     assert result.json_valid is False
-    assert result.error.startswith("model call failed:")
+    assert result.error == "model call failed: Connection error."
+    assert [record.message for record in caplog.records] == [
+        "Model connection attempt 1/2 failed: ConnectError: connection reset",
+        "Model connection attempt 2/2 failed: ConnectError: connection reset",
+    ]
 
 
 def test_truncated_json_retries_with_more_output_tokens(monkeypatch):
@@ -83,7 +125,7 @@ def test_truncated_json_retries_with_more_output_tokens(monkeypatch):
 
     def request(prompt, max_tokens):
         calls.append(max_tokens)
-        return '{"full_name":' if max_tokens == 2000 else '{"full_name":"Ada"}'
+        return LLMResponse('{"full_name":' if max_tokens == 2000 else '{"full_name":"Ada"}')
 
     monkeypatch.setattr(model.client, "_request", request)
     result = model.extract("Ada resume text")
@@ -91,6 +133,21 @@ def test_truncated_json_retries_with_more_output_tokens(monkeypatch):
     assert calls == [2000, 4000]
     assert result.json_valid is True
     assert result.profile.full_name == "Ada"
+
+
+def test_token_usage_includes_existing_json_fallback_calls(monkeypatch):
+    model = _model()
+
+    def request(prompt, max_tokens):
+        if max_tokens == 2000:
+            return LLMResponse('{"full_name":', 10, 5, 15)
+        return LLMResponse('{"full_name":"Ada"}', 12, 7, 19)
+
+    monkeypatch.setattr(model.client, "_request", request)
+    result = model.extract("Ada resume text")
+
+    assert result.json_valid is True
+    assert (result.prompt_tokens, result.completion_tokens, result.total_tokens) == (22, 12, 34)
 
 
 def test_context_error_splits_resume_and_merges_valid_profiles(monkeypatch):
@@ -107,7 +164,7 @@ def test_context_error_splits_resume_and_merges_valid_profiles(monkeypatch):
                 request=httpx.Request("POST", "http://localhost:8000/v1/chat/completions"),
             )
             raise BadRequestError("maximum context length exceeded", response=response, body=None)
-        return json.dumps({"full_name": "Ada"} if "Name: Ada" in part else {"skills": ["Python"]})
+        return LLMResponse(json.dumps({"full_name": "Ada"} if "Name: Ada" in part else {"skills": ["Python"]}))
 
     monkeypatch.setattr(model.client, "_request", request)
     result = model.extract(resume)
@@ -129,8 +186,8 @@ def test_malformed_json_can_fall_back_to_chunks(monkeypatch):
         part = _resume_part(prompt)
         calls.append((len(part), max_tokens))
         if len(part) == len(resume):
-            return '{"full_name":'
-        return json.dumps({"full_name": "Ada"} if "Name: Ada" in part else {"skills": ["Python"]})
+            return LLMResponse('{"full_name":')
+        return LLMResponse(json.dumps({"full_name": "Ada"} if "Name: Ada" in part else {"skills": ["Python"]}))
 
     monkeypatch.setattr(model.client, "_request", request)
     result = model.extract(resume)
@@ -165,7 +222,7 @@ def test_schema_validation_failure_is_not_retried(monkeypatch):
 
     def request(prompt, max_tokens):
         calls.append(max_tokens)
-        return '{"languages":["English"]}'
+        return LLMResponse('{"languages":["English"]}')
 
     monkeypatch.setattr(model.client, "_request", request)
     result = model.extract("English")

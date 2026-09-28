@@ -1,15 +1,4 @@
-"""
-Stage 2: OCR fallback.
-
-Only invoked when file_parser.ParseResult.needs_ocr is True (e.g. scanned
-resume, image-only PDF page, or a font-encoding issue that corrupted native
-Arabic extraction). Uses Tesseract with both Arabic and English language
-packs loaded simultaneously ("ara+eng") so mixed-language resumes and
-bilingual headers/sections are OCR'd correctly in one pass.
-
-Requires system packages: tesseract-ocr, tesseract-ocr-ara, poppler-utils
-(for pdf2image). See README for setup / Dockerfile snippet.
-"""
+"""Arabic and English OCR fallback for resumes with insufficient native text."""
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -17,7 +6,7 @@ from typing import List
 
 from .file_parser import ParseResult, ParsedPage
 
-# Tesseract language codes: Arabic + English loaded together.
+# Load both language packs for bilingual pages.
 OCR_LANGS = "ara+eng"
 
 
@@ -47,10 +36,7 @@ def ocr_pdf(path: str, config: OcrConfig = OcrConfig()) -> List[ParsedPage]:
 
 
 def ocr_docx_images(path: str, config: OcrConfig = OcrConfig()) -> List[ParsedPage]:
-    """Best-effort OCR of any images embedded in a DOCX (e.g. a resume that
-    is actually a screenshot pasted into Word). Rare, but included for
-    pipeline completeness.
-    """
+    """Best-effort OCR of embedded DOCX images, including screenshot-only resumes."""
     import zipfile
     import io
     from PIL import Image
@@ -69,11 +55,7 @@ def ocr_docx_images(path: str, config: OcrConfig = OcrConfig()) -> List[ParsedPa
 
 
 def apply_ocr_fallback(result: ParseResult, config: OcrConfig = OcrConfig()) -> ParseResult:
-    """Re-runs OCR for any page whose native extraction was insufficient,
-    and merges the OCR text in, preserving pages that already extracted
-    cleanly. Returns a new ParseResult with extraction_method='ocr' for any
-    modified page set.
-    """
+    """Preserve native text above the extraction threshold and fill other pages from OCR."""
     if not result.needs_ocr:
         return result
 
@@ -84,8 +66,6 @@ def apply_ocr_fallback(result: ParseResult, config: OcrConfig = OcrConfig()) -> 
     else:
         return result
 
-    # Merge: prefer native text per-page if it was already above threshold,
-    # otherwise use the OCR'd text for that page index.
     from .file_parser import MIN_CHARS_PER_PAGE_THRESHOLD
 
     merged: List[ParsedPage] = []

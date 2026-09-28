@@ -1,13 +1,4 @@
-"""
-Parsing pipeline orchestrator.
-
-    Resume -> File Parser -> OCR fallback (if needed) -> Clean/normalize -> ParsedResume
-
-This is the ONLY module the model layer / evaluator should depend on for
-getting resume text. It deliberately knows nothing about which LLM will
-consume its output, so parser/OCR improvements never require touching
-model code, and models can be swapped without touching parsing code.
-"""
+"""Parse resume text, apply OCR when needed, and normalize it for extraction."""
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -31,9 +22,6 @@ class ParsedResume:
 
 
 def run_parsing_pipeline(path: str, ocr_config: OcrConfig | None = None) -> ParsedResume:
-    """Runs the full modular pipeline for a single resume file and returns
-    normalized text + metadata ready to be handed to any model.
-    """
     result: ParseResult = parse_file(path)
 
     if result.needs_ocr:
