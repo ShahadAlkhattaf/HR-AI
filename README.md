@@ -1,445 +1,360 @@
-# Beamdata HR AI — Bilingual Resume Parsing & Multi-Model Evaluation Baseline
+# HR AI — Bilingual Resume Parsing & Model Benchmarking
 
-Team 4 (HR AI) capstone baseline. Implements the pipeline required by the project spec, in priority order:
+HR AI is a bilingual resume parsing and structured information extraction system developed as part of the SDA AI Data Center Bootcamp Capstone.
 
-1. Parsing pipeline (bilingual EN/AR, modular, model-independent)
-2. English + Arabic support
-3. Evaluation dataset structure
-4. Multiple-model evaluation via a common interface
-5. Extensible quality/infrastructure metrics
-6. Model-selection-ready report output
-7. Thin FastAPI baseline around the pipeline
+The project processes English and Arabic resumes, extracts candidate information into a structured JSON profile, benchmarks multiple language models against ground-truth data, and supports deployment through an OpenAI-compatible model serving endpoint.
 
-Docker, model serving, and deployment are the next stage.
+## Overview
+
+The system provides:
+
+- PDF and DOCX resume parsing
+- English and Arabic language support
+- OCR fallback for scanned documents
+- LLM-based structured candidate extraction
+- JSON schema validation
+- Model benchmarking and evaluation
+- Per-field Precision, Recall, and F1 metrics
+- Separate English and Arabic evaluation results
+- Latency and token-usage measurements
+- FastAPI backend
+- React/Vite frontend
+- OpenAI-compatible model serving integration
+- Docker and Kubernetes-ready backend deployment
 
 ## Architecture
 
 ```text
-Resume (PDF/DOCX upload or file path)
-  ↓
-File Parser          (src/parsing/file_parser.py)
-  │                   PDF: PyMuPDF / DOCX: python-docx
-  ↓
-OCR fallback         (src/parsing/ocr.py)
-  │                   Tesseract, lang="ara+eng"
-  ↓
-Clean / normalize    (src/utils/language.py)
-  │                   language detection, Arabic normalization, text cleaning
-  ↓
-[ Model A | Model B | Model C ]   (src/extraction/* + src/llm/*)
-  │                                common ResumeExtractionModel interface
-  ↓
-Structured CandidateProfile JSON  (src/extraction/schema.py)
-  ↓
-Evaluation vs ground truth         (src/evaluation/*)
-  ↓
-FastAPI baseline                   (src/api/main.py)
-                                      thin HTTP wrapper for local testing
-                                      and future HR-app integration
+User
+  |
+  v
+React / Vite UI
+  |
+  v
+FastAPI Backend
+  |
+  +--> Resume Parsing
+  |      |- PDF / DOCX extraction
+  |      |- OCR fallback
+  |      `- Language detection
+  |
+  +--> Structured Extraction
+  |      `- Prompt + CandidateProfile validation
+  |
+  v
+OpenAI-Compatible Model Endpoint
+  |
+  v
+vLLM / Qwen
 ```
 
-### Why it is split this way
+The frontend and backend are independent. The evaluation pipeline can run without the frontend.
 
-`src/parsing` does not depend on a specific model implementation, and the model layer operates on cleaned resume text rather than handling files directly.
+## Project Structure
 
-The evaluator (`src/evaluation/evaluator.py`) and API layer (`src/api/main.py`) wire the stages together.
-
-Existing registered models can therefore be selected through `configs/models.yaml` without changing the parsing or evaluation pipeline. Shared served-model clients are configured in `src/llm/registry.py`; extraction models are registered in `src/extraction/extractor.py`.
-
-## Candidate Schema
-
-`src/extraction/schema.py::CandidateProfile` approximates the target HR AI application's demo sections until the real API contract is available.
-
-### Profile
-
-- `full_name`
-- `email`
-- `phone`
-- `location`
-- `summary`
-- `github`
-- `linkedin`
-- `portfolio`
-
-### Skills
-
-- `skills` — single flat list of strings
-
-### Certificates
-
-`certificates[]`
-
-- `name`
-- `issuer`
-- `issue_date`
-- `expiry_date`
-
-### Projects
-
-`projects[]`
-
-- `name`
-- `link`
-- `description`
-
-### Education
-
-`education[]`
-
-- `degree`
-- `institution`
-- `start_year`
-- `end_year`
-- `gpa`
-
-### Experience
-
-`work_experience[]`
-
-- `company`
-- `role`
-- `start_date`
-- `end_date`
-- `description`
-
-### Additional fields
-
-- `languages[]`
-- `years_of_experience`
-- `detected_source_language`
-
-Missing optional fields do not cause validation failure. Scalar fields default to `null` where appropriate and collections default to `[]`.
-
-The current field names approximate the HR AI demo only. Once the real application API contract is provided, the API layer/schema mapping can be adapted without redesigning the parsing or model-serving pipeline.
-
-## Supported Formats & Languages
-
-### File formats
-
-- PDF
-- DOCX
-
-### Languages
-
-- English
-- Arabic
-- Mixed English/Arabic
-
-OCR fallback uses Tesseract with `ara+eng` when native extraction produces insufficient text, such as scanned PDF pages.
-
-## Setup
-
-Install Python dependencies:
-
-```bash
-pip install -r requirements.txt --break-system-packages
+```text
+.
+├── src/
+│   ├── api/              # FastAPI application
+│   ├── evaluation/       # Metrics, evaluator, and reports
+│   ├── extraction/       # LLM extraction and CandidateProfile schema
+│   ├── llm/              # Model client and serving configuration
+│   ├── matching/         # Evaluation/scoring utilities
+│   ├── parsing/          # PDF, DOCX, OCR, and parsing pipeline
+│   └── utils/            # Language and text utilities
+│
+├── scripts/
+│   ├── run_evaluation.py
+│   ├── run_pipeline.py
+│   ├── inspect_extractions.py
+│   └── seed_sample_data.py
+│
+├── tests/                # Automated tests
+├── ui/                   # React/Vite frontend
+├── docker/               # Backend Docker configuration
+├── configs/              # Project configuration
+├── data/                 # Local evaluation data (not committed)
+├── reports/              # Generated evaluation reports (not committed)
+├── .env.example
+└── requirements.txt
 ```
 
-Or use a Python virtual environment.
+## Candidate Profile
 
-OCR fallback also requires system packages:
+The extraction pipeline converts a resume into structured fields including:
 
-```bash
-sudo apt-get update
-sudo apt-get install -y tesseract-ocr tesseract-ocr-ara poppler-utils
-```
-
-## Model Configuration
-
-The `mock` model requires no API key and is intended only for smoke testing.
-
-Real candidate models can be configured through environment variables.
+- Full name
+- Email
+- Phone
+- Location
+- Professional summary
+- Skills
+- Education
+- Work experience
+- Certifications
+- Projects
+- Languages
+- Years of experience
+- GitHub, LinkedIn, and portfolio links
 
 Example:
 
-```bash
-export ANTHROPIC_API_KEY=...
-export OPENAI_COMPATIBLE_API_KEY=...
-
-export QWEN_72B_BASE_URL=http://localhost:8000/v1
-export QWEN_7B_BASE_URL=http://localhost:8001/v1
-
-export DEFAULT_MODEL_KEY=mock
-```
-
-Model IDs and serving URLs can also be overridden through their corresponding environment variables defined in `src/llm/registry.py`.
-
-Do not commit API keys or other secrets to the repository.
-
-## Quickstart
-
-### 1. Create bilingual smoke-test data
-
-```bash
-python scripts/seed_sample_data.py
-```
-
-This creates separate English and Arabic sample resumes with language-matched ground truth.
-
-### 2. Test the parsing pipeline
-
-English:
-
-```bash
-python scripts/run_pipeline.py data/resumes/english/sample_en_001.docx
-```
-
-Arabic:
-
-```bash
-python scripts/run_pipeline.py data/resumes/arabic/sample_ar_001.docx
-```
-
-This tests parsing independently from model inference.
-
-### 3. Run the evaluation loop with the mock model
-
-Create a temporary mock-only configuration:
-
-```bash
-python -c "
-import yaml
-yaml.safe_dump(
+```json
+{
+  "full_name": "Candidate Name",
+  "email": "candidate@example.com",
+  "skills": [
+    "Python",
+    "Docker",
+    "Kubernetes"
+  ],
+  "education": [],
+  "work_experience": [],
+  "certificates": [],
+  "projects": [],
+  "languages": [
     {
-        'models': ['mock'],
-        'data_dir': 'data',
-        'report_out_json': 'reports/eval_report.json',
-        'report_out_md': 'reports/eval_report.md'
-    },
-    open('configs/mock_only.yaml', 'w')
-)
-"
+      "language": "Arabic",
+      "proficiency": "Native"
+    }
+  ]
+}
 ```
 
-Run:
+## Setup
+
+### 1. Clone the repository
 
 ```bash
-python scripts/run_evaluation.py --config configs/mock_only.yaml
+git clone <repository-url>
+cd beamdata-hr-ai-baseline
 ```
 
-The mock model validates the end-to-end software path but does **not** measure real extraction quality.
-
-### 4. Start the FastAPI baseline
+### 2. Create a Python environment
 
 ```bash
-uvicorn src.api.main:app --reload
+python -m venv .venv
 ```
 
-The API will be available locally at:
+Windows:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+Linux/macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+### 3. Install backend dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure environment variables
+
+Copy the example environment file:
+
+```bash
+cp .env.example .env
+```
+
+## Run the Backend
+
+From the project root:
+
+```bash
+uvicorn src.api.main:app --reload --port 8000
+```
+
+Health check:
+
+```text
+GET /health
+```
+
+Available models:
+
+```text
+GET /v1/models
+```
+
+Resume parsing:
+
+```text
+POST /v1/resumes/parse
+```
+
+Interactive API documentation is available at:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+## Run the Frontend
+
+```bash
+cd ui
+npm install
+npm run dev
+```
+
+The development UI is normally available at:
+
+```text
+http://localhost:5173
+```
+
+Set the API endpoint in the UI to the running FastAPI backend, for example:
 
 ```text
 http://127.0.0.1:8000
 ```
 
-## Adding Real Evaluation Data
+## Evaluation
 
-Evaluation data follows this structure:
+The evaluation pipeline is independent of the frontend.
 
-```text
-data/
-├── resumes/
-│   ├── english/
-│   └── arabic/
-├── jobs/
-└── ground_truth/
-    └── <resume_id>.json
-```
+Evaluation data is kept locally under `data/` and is intentionally excluded from Git because resumes may contain personally identifiable information.
 
-Each resume must have its own human-reviewed ground-truth JSON.
-
-For example:
-
-```text
-sample_en_001.docx
-        ↓
-sample_en_001.json
-```
-
-The expected JSON follows the `CandidateProfile` schema.
-
-Each ground-truth file must represent the information contained in that specific resume and preserve the appropriate source language.
-
-Ground truth is used **only for evaluation** and is never provided to the model during inference.
-
-The synthetic samples generated by `scripts/seed_sample_data.py` are smoke-test data, not the final benchmarking dataset.
-
-## Adding a Candidate Model
-
-All candidate models implement the same interface:
-
-```text
-ResumeExtractionModel
-        ↓
-_call(prompt)
-        ↓
-raw model response
-        ↓
-CandidateProfile
-```
-
-To add a new model:
-
-1. Add a shared client under `src/llm/` if a new transport is needed.
-2. Implement the extraction task under `src/extraction/` using `ResumeExtractionModel`.
-3. Register the shared client in `src/llm/registry.py` and the extraction model in `src/extraction/extractor.py`.
-4. Add its key to `configs/models.yaml`.
-
-OpenAI-compatible candidates can reuse `OpenAICompatibleClient` with `OpenAICompatibleModel`, allowing models served through systems such as vLLM to be changed mainly through configuration rather than new integration code. Future job matching accepts a `CandidateProfile` and job description through `src/matching/`; its prompt and deterministic scoring are separate from extraction.
-
-## Evaluation Metrics
-
-Currently implemented in `src/evaluation/metrics.py`:
-
-- Field-level precision / recall / F1 using normalized exact matching
-- Skills evaluated as order-independent sets
-- Structured collections evaluated using a representative key:
-  - Education → `institution`
-  - Work experience → `company`
-  - Certificates → `name`
-  - Projects → `name`
-  - Languages → `language`
-- JSON structural validity
-- Overall F1 per resume
-- Aggregated model results
-- English vs. Arabic result splits
-- Per-call latency captured in `ExtractionResult`
-
-The current evaluator is a **baseline scorer**. Structured fields are not yet scored across every sub-field, and aliases or semantic equivalents are not treated as matches.
-
-For example, the current exact matcher may treat:
-
-```text
-AWS != Amazon Web Services
-```
-
-as different values.
-
-Evaluation metrics should therefore be refined before reporting final model extraction accuracy.
-
-### Infrastructure metrics planned for deployed models
-
-Once real models are running, benchmarking can be extended with:
-
-- p50 / p95 latency
-- throughput
-- GPU / VRAM requirements
-- token usage
-- inference cost
-- deployment/resource requirements
-
-These measurements should come from actual model-serving runs rather than fabricated or estimated benchmark results.
-
-## API
-
-The FastAPI layer wraps the existing parsing and model-extraction pipeline for local testing and future HR application integration.
-
-The current API is a **baseline contract**, not necessarily the final HR AI application API contract.
-
-### `GET /health`
+Run the benchmark with:
 
 ```bash
-curl http://127.0.0.1:8000/health
+python scripts/run_evaluation.py
 ```
 
-Expected response:
-
-```json
-{
-  "status": "ok"
-}
-```
-
-### `GET /v1/models`
+Language-specific evaluation is also supported:
 
 ```bash
-curl http://127.0.0.1:8000/v1/models
+python scripts/run_evaluation.py --language en
+python scripts/run_evaluation.py --language ar
 ```
 
-Returns configured model keys without exposing credentials.
-
-### `POST /v1/resumes/parse`
-
-Accepts a PDF or DOCX resume as `multipart/form-data`.
-
-Example:
-
-```bash
-curl -F "file=@data/resumes/english/sample_en_001.docx" \
-  "http://127.0.0.1:8000/v1/resumes/parse?model=mock"
-```
-
-Processing flow:
+Generated reports are written under:
 
 ```text
-Uploaded Resume
-      ↓
-File Parser
-      ↓
-OCR fallback if required
-      ↓
-Cleaned Resume Text
-      ↓
-Selected ResumeExtractionModel
-      ↓
-CandidateProfile
-      ↓
-JSON Response
+reports/
 ```
 
-The response contains the selected model, parsing metadata, and structured candidate profile.
+The evaluation compares extracted CandidateProfile fields against ground-truth profiles and reports:
 
-Unsupported file formats return an HTTP 400 response. Temporary uploaded files are cleaned up after processing.
+- JSON validity
+- Precision
+- Recall
+- F1
+- Per-field F1
+- English F1
+- Arabic F1
+- Average latency
+- Prompt tokens
+- Completion tokens
+- Total tokens
 
-## What's Intentionally Not Implemented Yet
+## Model Benchmark
 
-The current repository focuses on the resume extraction and evaluation baseline.
+The evaluation dataset contained:
 
-Not yet implemented:
+- **44 resumes total**
+- **36 English resumes**
+- **8 Arabic resumes**
 
-- Docker / Docker Compose
-- vLLM model serving
-- GPU configuration
-- Kubernetes / Helm / HPA
-- Beamdata AI Hub deployment
-- Frontend/UI
-- Database
-- Job-to-candidate matching
-- Skill-gap analysis
-- Learning recommendations
-- RAG integration, unless relevant to the final use-case scope
-- Final HR AI application API integration
+Three Qwen models were evaluated using the same extraction pipeline and ground-truth dataset.
 
-## Next Deployment Stage
+| Model | JSON Validity | Precision | Recall | F1 | Avg Latency |
+|---|---:|---:|---:|---:|---:|
+| Qwen2.5-1.5B-Instruct-AWQ | 40.9% | 0.6670 | 0.6125 | 0.6250 | 10.66 s |
+| Qwen2.5-3B-Instruct | 72.7% | 0.7002 | 0.6890 | 0.6887 | 24.80 s |
+| Qwen2.5-7B-Instruct | 100% | 0.7566 | 0.7440 | 0.7465 | 47.44 s |
 
-The next stage is to move from the validated baseline into real model serving and benchmarking:
+### Language Results
 
-1. Containerize the FastAPI resume-processing service.
-2. Serve the first open-weight candidate through an OpenAI-compatible endpoint such as vLLM.
-3. Run real resume extraction through the same API/pipeline.
-4. Evaluate multiple candidate models using the same human-reviewed dataset.
-5. Compare extraction quality, JSON validity, English/Arabic performance, latency, throughput, resource requirements, and cost.
-6. Select the model based on the evaluation results and deployment constraints.
-7. Deploy the selected setup to Beamdata AI Hub.
-8. Re-run the evaluation against the deployed endpoint to verify deployment performance.
+| Model | English F1 | Arabic F1 |
+|---|---:|---:|
+| Qwen2.5-1.5B-Instruct-AWQ | 0.6860 | 0.5031 |
+| Qwen2.5-3B-Instruct | 0.7195 | 0.5550 |
+| Qwen2.5-7B-Instruct | 0.7832 | 0.5811 |
 
-The HR AI application can then consume the serving API. If its final request/response contract differs from this baseline, adapt the API mapping without changing the underlying parsing, evaluation, or model-serving architecture.
+### Structured Output Reliability
 
-## Tests
+Valid structured outputs:
 
-Run:
+```text
+Qwen2.5-1.5B-Instruct-AWQ   18 / 44
+Qwen2.5-3B-Instruct         32 / 44
+Qwen2.5-7B-Instruct         44 / 44
+```
+
+Based on extraction quality and structured-output reliability, **Qwen2.5-7B-Instruct was selected for the final serving configuration**, with higher latency accepted as a trade-off for improved extraction performance.
+
+## Testing
+
+Run the automated tests with:
 
 ```bash
-python -m pytest tests/ -v
+pytest
 ```
 
-Current tests cover:
+The test suite covers areas including:
 
-- English language detection
-- Arabic language detection
-- Mixed-language detection
-- Arabic normalization
-- Text cleaning
-- CandidateProfile validation/defaults
-- Basic evaluation metric behavior
+- Parsing and normalization
+- CandidateProfile validation
+- Date normalization
+- Evaluation metrics and reporting
+- Model connection/fallback behavior
+- Failed-evaluation retry behavior
 
-The current test suite is primarily for baseline validation. Real PDF, scanned/OCR resumes, real model endpoints, and the final evaluation dataset should be added to the test/benchmark process as they become available.
+## Docker
+
+The backend can be built from the provided Docker configuration.
+
+```bash
+docker build -f docker/Dockerfile -t hr-ai-api .
+```
+
+Run it with the required environment configuration:
+
+```bash
+docker run --env-file .env -p 8000:8000 hr-ai-api
+```
+
+Evaluation datasets, reports, local environment files, frontend dependencies, and generated outputs are excluded from the production Docker context.
+
+The current backend image does not build or serve the React frontend.
+
+## Deployment Architecture
+
+The intended production architecture keeps the application and inference layers separated:
+
+```text
+Browser
+   |
+   v
+Frontend
+   |
+   v
+HR AI FastAPI
+   |
+   v
+Internal Model Service
+   |
+   v
+vLLM + Qwen2.5-7B-Instruct
+```
+
+In Kubernetes, the API can communicate with the model server through its internal service address rather than exposing the inference endpoint directly to the browser.
+
+## Privacy
+
+Candidate resumes may contain personally identifiable information (PII).
+
+Resume data is processed only as needed for parsing, skill extraction, and candidate analysis. Local resume datasets, generated candidate profiles, environment files, and evaluation outputs are excluded from version control.
+
+## Notes
+
+- The frontend never receives the model API credential.
+- Model credentials are loaded by the backend from environment variables.
+- Evaluation data and generated reports are not included in the repository.
+- The frontend is not required to run model evaluation.
