@@ -1,0 +1,72 @@
+{
+  "full_name": "سارة الأمين",
+  "email": "sarah.alamin@example.com",
+  "phone": "+966501234567",
+  "location": "الرياض، المملكة العربية السعودية",
+  "summary": "مهندسة برمجيات لديها خمس سنوات من الخبرة في بناء خطوط البيانات والبنية التحتية للتعلم الآلي.",
+  "github": "github.com/sarahalamin",
+  "linkedin": null,
+  "portfolio": null,
+  "skills": [
+    "بايثون",
+    "إس كيو إل",
+    "دوكر",
+    "كوبرنيتيس",
+    "أمازون ويب سيرفيسز",
+    "القيادة",
+    "التواصل",
+    "حل المشكلات"
+  ],
+  "certificates": [
+    {
+      "name": "شهادة AWS للحلول المعمارية المعتمدة",
+      "issuer": "أمازون",
+      "issue_date": "2022",
+      "expiry_date": null
+    }
+  ],
+  "projects": [
+    {
+      "name": "محلل السير الذاتية",
+      "link": "github.com/sarahalamin/resume-parser",
+      "description": "خط أنابيب مفتوح المصدر لتحليل السير الذاتية ثنائية اللغة."
+    }
+  ],
+  "education": [
+    {
+      "degree": "بكالوريوس علوم حاسب",
+      "institution": "جامعة الملك سعود",
+      "start_year": "2016",
+      "end_year": "2020",
+      "gpa": "3.8"
+    }
+  ],
+  "work_experience": [
+    {
+      "company": "شركة أكمي للتحليلات",
+      "role": "مهندسة برمجيات",
+      "start_date": "2020",
+      "end_date": "2023",
+      "description": "بناء خطوط بيانات وأدوات داخلية باستخدام بايثون."
+    },
+    {
+      "company": "داتاكور",
+      "role": "مهندسة برمجيات أولى",
+      "start_date": "2023",
+      "end_date": "حتى الآن",
+      "description": "تقود فريقاً لبناء البنية التحتية للتعلم الآلي."
+    }
+  ],
+  "languages": [
+    {
+      "language": "العربية",
+      "proficiency": "اللغة الأم"
+    },
+    {
+      "language": "الإنجليزية",
+      "proficiency": "طلاقة"
+    }
+  ],
+  "years_of_experience": 5,
+  "detected_source_language": "ar"
+}
